@@ -1,0 +1,22 @@
+<mat-toolbar color="primary" class="custom-toolbar">
+  <button mat-icon-button (click)="openSidenav()">
+    <mat-icon>menu</mat-icon>
+  </button>
+  <span>Application</span>
+  <div fxFlex fxLayout="row" fxLayoutAlign="flex-end" fxHide.xs>
+    <ul fxLayout="row" fxLayoutGap="20px">
+      <li>
+        <button mat-button [matMenuTriggerFor]="menu">
+          <mat-icon>person_outline</mat-icon>
+          Username
+        </button>
+        <mat-menu #menu="matMenu">
+          <button mat-menu-item>
+            <mat-icon>exit_to_app</mat-icon>
+            Exit
+          </button>
+        </mat-menu>
+      </li>
+    </ul>
+  </div>
+</mat-toolbar>

@@ -1,0 +1,27 @@
+<mat-nav-list>
+  <a mat-list-item routerLinkActive="list-item-active" routerLink="/pacientes">
+    <mat-icon>people</mat-icon>
+    Module 1
+  </a>
+  <a mat-list-item routerLinkActive="list-item-active" routerLink="/consultorio">
+    <mat-icon>calendar_month</mat-icon>
+    Module 2
+  </a>
+  <a mat-list-item [matMenuTriggerFor]="animals">
+    <mat-icon>settings</mat-icon>
+    Module 3
+  </a>
+  <mat-menu #animals="matMenu">
+    <button mat-menu-item [matMenuTriggerFor]="users">SubModule 1</button>
+    <button mat-menu-item [matMenuTriggerFor]="consul">SubModule 2</button>
+  </mat-menu>
+  <mat-menu #users="matMenu">
+    <a mat-menu-item routerLinkActive="list-item-active" [routerLink]="['/configuracion/usuarios']"> Submodule 1a</a>
+    <button mat-menu-item routerLinkActive="list-item-active" [routerLink]="['/configuracion/roles']">Submodule 1b</button>
+  </mat-menu>
+  <mat-menu #consul="matMenu">
+    <a mat-menu-item routerLinkActive="list-item-active" [routerLink]="['/configuracion/agendas']">Submodule 2a</a>
+    <a mat-menu-item routerLinkActive="list-item-active" [routerLink]="['/configuracion/profesionales']">Submodule 2b</a>
+    <a mat-menu-item routerLinkActive="list-item-active" [routerLink]="['/configuracion/practicas']">Submodule 2c</a>
+  </mat-menu>
+</mat-nav-list>

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import {FormControl, FormGroup, Validators } from '@angular/forms';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-login',
@@ -8,21 +9,22 @@ import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms'
 })
 export class LoginComponent implements OnInit {
 
-  hidePass = true
+  hidePass = true;
 
-
-  loginForm: FormGroup = this.formBuilder.group({
-    username: ['', Validators.required],
-    password: ['', Validators.required]
+  loginForm = new FormGroup({
+    username: new FormControl('',Validators.required),
+    password: new FormControl('',Validators.required)
   });
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private authService: AuthService) { }
 
   ngOnInit(): void {
   }
 
   login() {
-
+    this.authService.login(this.loginForm.value).subscribe( x => {
+      console.log(x);
+    });
   }
 
 }

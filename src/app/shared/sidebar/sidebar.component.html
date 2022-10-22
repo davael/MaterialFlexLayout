@@ -1,15 +1,15 @@
 <mat-nav-list>
   <a mat-list-item routerLinkActive="list-item-active" routerLink="/pacientes">
-    <mat-icon>people</mat-icon>
-    Module 1
+    <mat-icon mat-list-icon>people</mat-icon>
+    <h4 mat-line>Module 1</h4>
   </a>
   <a mat-list-item routerLinkActive="list-item-active" routerLink="/consultorio">
-    <mat-icon>calendar_month</mat-icon>
-    Module 2
+    <mat-icon mat-list-icon>calendar_month</mat-icon>
+    <h4 mat-line>Module 2</h4>
   </a>
   <a mat-list-item [matMenuTriggerFor]="animals">
-    <mat-icon>settings</mat-icon>
-    Module 3
+    <mat-icon mat-list-icon>settings</mat-icon>
+    <h4 mat-line>Module 3</h4>
   </a>
   <mat-menu #animals="matMenu">
     <button mat-menu-item [matMenuTriggerFor]="users">SubModule 1</button>

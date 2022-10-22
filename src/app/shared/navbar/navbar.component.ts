@@ -7,16 +7,13 @@ import { AuthService } from 'src/app/modules/auth/services/auth.service';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss']
 })
-export class NavbarComponent implements OnInit {
+export class NavbarComponent {
 
   user$ = this.authService.user$;
 
   @Output() sidenavToogle = new EventEmitter<boolean>();
 
   constructor(private authService: AuthService) { }
-
-  ngOnInit(): void {
-  }
 
   openSidenav() {
     this.sidenavToogle.emit(true);

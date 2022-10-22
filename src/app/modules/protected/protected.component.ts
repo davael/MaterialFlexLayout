@@ -5,11 +5,10 @@ import { Component, OnInit } from '@angular/core';
   templateUrl: './protected.component.html',
   styleUrls: ['./protected.component.scss']
 })
-export class ProtectedComponent implements OnInit {
+export class ProtectedComponent{
 
   constructor() { }
 
-  ngOnInit(): void {
-  }
+
 
 }

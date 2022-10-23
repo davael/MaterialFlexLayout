@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { MenuService } from './../../core/services/menu.service';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-sidebar',
@@ -7,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SidebarComponent  {
 
-  constructor() { }
+  fullSidenav$ = this.menuS.fullSidenav$
+
+  constructor(private menuS: MenuService) { }
 
 }

@@ -1,8 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import {  Router } from '@angular/router';
-import { Iloginrequest } from 'src/app/core/interfaces/iloginrequest';
-import { catchError, ignoreElements, tap } from 'rxjs/operators';
+import { catchError, tap } from 'rxjs/operators';
 import { BehaviorSubject, EMPTY } from 'rxjs';
 import { IUser } from 'src/app/core/interfaces/iuser';
 import { environment } from '../../../../environments/environment'

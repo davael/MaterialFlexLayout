@@ -9,11 +9,11 @@ import { AuthService } from 'src/app/modules/auth/services/auth.service';
 })
 export class NavbarComponent implements OnInit {
 
-  user$ = this.authService.user$;
+ /*  user$ = this.authService.user$; */
 
   @Output() sidenavToogle = new EventEmitter<boolean>();
 
-  constructor(private authService: AuthService) { }
+  constructor(/* private authService: AuthService */) { }
 
   ngOnInit(): void {
   }

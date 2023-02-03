@@ -26,7 +26,6 @@ export class AuthService {
 
 
   login(credentials: any) {
-    console.log('ingresa');
     return this.httpClient
       .post(url +`${url}login/authenticate`, credentials)
       .pipe(

@@ -1,10 +1,9 @@
-<app-navbar (sidenavToogle)="drawer.toggle()"></app-navbar>
-<mat-drawer-container class="example-container" autosize>
-  <mat-drawer #drawer class="example-sidenav" mode="side">
+<app-navbar (sidenavToogle)="sidenav.toggle()"></app-navbar>
+<mat-sidenav-container class="example-container" autosize>
+  <mat-sidenav (mouseenter)="onSinenavToggle()" (mouseleave)="onSinenavToggleOut()" #sidenav class="example-sidenav" mode="side" opened="true">
     <app-sidebar></app-sidebar>
-  </mat-drawer>
-  <mat-drawer-content>
-    <mat-card></mat-card>
+  </mat-sidenav>
+  <mat-sidenav-content>
     <router-outlet></router-outlet>
-  </mat-drawer-content>
-</mat-drawer-container>
+  </mat-sidenav-content>
+</mat-sidenav-container>

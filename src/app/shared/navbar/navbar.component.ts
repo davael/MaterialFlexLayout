@@ -1,6 +1,5 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-import { IUser } from 'src/app/core/interfaces/iuser';
-import { AuthService } from 'src/app/modules/auth/services/auth.service';
+
 
 @Component({
   selector: 'app-navbar',
@@ -9,11 +8,10 @@ import { AuthService } from 'src/app/modules/auth/services/auth.service';
 })
 export class NavbarComponent {
 
- /*  user$ = this.authService.user$; */
 
   @Output() sidenavToogle = new EventEmitter<boolean>();
 
-  constructor(/* private authService: AuthService */) { }
+  constructor() { }
 
   openSidenav() {
     this.sidenavToogle.emit(true);

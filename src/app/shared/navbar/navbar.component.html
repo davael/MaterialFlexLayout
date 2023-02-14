@@ -3,17 +3,16 @@
     <mat-icon>menu</mat-icon>
   </button>
   <span>Application</span>
-  <div fxFlex fxLayout="row" fxLayoutAlign="flex-end" fxHide.xs>
+  <div fxFlex fxLayout="row" fxLayoutAlign="flex-end" >
     <ul fxLayout="row" fxLayoutGap="20px">
       <li>
         <button mat-button [matMenuTriggerFor]="menu">
           <mat-icon>person_outline</mat-icon>
-          <!-- {{(user$| async).usu_Usuario}} -->dcisneros
         </button>
         <mat-menu #menu="matMenu">
           <button mat-menu-item>
             <mat-icon>exit_to_app</mat-icon>
-            Exit
+            Cerrar Sesion
           </button>
         </mat-menu>
       </li>

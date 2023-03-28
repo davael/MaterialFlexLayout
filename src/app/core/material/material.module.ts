@@ -13,6 +13,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
 import {MatDividerModule} from '@angular/material/divider';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 
 @NgModule({
@@ -30,7 +31,8 @@ import {MatDividerModule} from '@angular/material/divider';
     MatPaginatorModule,
     MatFormFieldModule,
     MatInputModule,
-    MatDividerModule
+    MatDividerModule,
+    MatCheckboxModule
 
   ],
   exports: [MatToolbarModule,
@@ -44,6 +46,7 @@ import {MatDividerModule} from '@angular/material/divider';
     MatPaginatorModule,
     MatFormFieldModule,
     MatInputModule,
-    MatDividerModule]
+    MatDividerModule,
+    MatCheckboxModule]
 })
 export class MaterialModule { }

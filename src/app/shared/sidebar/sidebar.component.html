@@ -9,15 +9,15 @@
   </a>
   <a mat-list-item [matMenuTriggerFor]="animals">
     <mat-icon mat-list-icon>settings</mat-icon>
-    <h4 mat-line *ngIf="this.fullSidenav$|async">Module 3</h4>
+    <h4 mat-line *ngIf="this.fullSidenav$|async">Configuración</h4>
   </a>
   <mat-menu #animals="matMenu">
-    <button mat-menu-item [matMenuTriggerFor]="users">SubModule 1</button>
+    <button mat-menu-item [matMenuTriggerFor]="users">Seguridad</button>
     <button mat-menu-item [matMenuTriggerFor]="consul">SubModule 2</button>
   </mat-menu>
   <mat-menu #users="matMenu">
-    <a mat-menu-item routerLinkActive="list-item-active" [routerLink]="['/module3/page1']"> Submodule 1a</a>
-    <a mat-menu-item routerLinkActive="list-item-active" [routerLink]="['/module3/page2']">Submodule 1b</a>
+    <a mat-menu-item routerLinkActive="list-item-active" [routerLink]="['/configuracion/roles']">Roles</a>
+    <a mat-menu-item routerLinkActive="list-item-active" [routerLink]="['/configuracion/usuarios']">Usuarios</a>
   </mat-menu>
   <mat-menu #consul="matMenu">
     <a mat-menu-item routerLinkActive="list-item-active" [routerLink]="['/configuracion/agendas']">Submodule 2a</a>

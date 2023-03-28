@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { Page1Component } from './page1.component';
+import { ListaRolesComponent } from './lista-roles.component';
 
-describe('Page1Component', () => {
-  let component: Page1Component;
-  let fixture: ComponentFixture<Page1Component>;
+describe('ListaRolesComponent', () => {
+  let component: ListaRolesComponent;
+  let fixture: ComponentFixture<ListaRolesComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ Page1Component ]
+      declarations: [ ListaRolesComponent ]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(Page1Component);
+    fixture = TestBed.createComponent(ListaRolesComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

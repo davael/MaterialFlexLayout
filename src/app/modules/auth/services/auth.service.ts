@@ -4,7 +4,8 @@ import {  Router } from '@angular/router';
 import { catchError, tap } from 'rxjs/operators';
 import { BehaviorSubject, EMPTY } from 'rxjs';
 import { IUser } from 'src/app/core/interfaces/iuser';
-import { environment } from '../../../../environments/environment'
+import { environment } from 'src/environments/environment.prod';
+
 
 
 const url = environment.APIUrl;

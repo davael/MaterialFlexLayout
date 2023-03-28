@@ -14,7 +14,7 @@ export class NavbarComponent {
   constructor() { }
 
   openSidenav() {
-    this.sidenavToogle.emit(true);
+    //this.sidenavToogle.emit(true);
   }
 
 }

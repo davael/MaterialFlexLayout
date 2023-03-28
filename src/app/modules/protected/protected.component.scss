@@ -3,6 +3,9 @@
   height: 100%;
 }
 
+.custom-toolbar{
+  max-height: 40px;
+}
 
 .example-sidenav-content {
   display: flex;
@@ -10,6 +13,14 @@
   align-items: center;
   justify-content: center;
 }
+
+.card-principal{
+  margin: 30px;
+}
+.space {
+  margin-left: 10px;
+}
+
 
 
 

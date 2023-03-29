@@ -15,4 +15,12 @@ export class RolService {
   getAllRoles(){
     return this.httpClient.get<any>(url + 'Roles')
   }
+
+  updateRol(id: number, value: any){
+    return this.httpClient.put(url + 'Roles/'+id,value)
+  }
+
+  addRol(rol:any){
+    return this.httpClient.post(url + 'Roles',rol);
+  }
 }

@@ -1,1 +1,60 @@
-<p>lista-usuarios works!</p>
+<h1>Usuarios</h1>
+<mat-divider></mat-divider>
+<div fxLayout="row" fxLayoutAlign="space-between center" fxLayout.xs="column">
+  <div>
+    <mat-form-field appearance="standard">
+      <mat-label>Buscar</mat-label>
+      <input matInput (keyup)="applyFilter($event)" placeholder="Ex. ium" #input>
+    </mat-form-field>
+  </div>
+  <div>
+    <button mat-raised-button color="primary" (click)="openDialog(null,false)"> <mat-icon>add</mat-icon> Nuevo Usuario</button>
+  </div>
+
+</div>
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+  <ng-container matColumnDef="position">
+    <th mat-header-cell *matHeaderCellDef> Id</th>
+    <td mat-cell *matCellDef="let element"> {{element.userId}} </td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef> Usuario </th>
+    <td mat-cell *matCellDef="let element"> {{element.userName}} </td>
+  </ng-container>
+
+  <!-- Weight Column -->
+
+  <ng-container matColumnDef="email">
+    <th mat-header-cell *matHeaderCellDef> Email </th>
+    <td mat-cell *matCellDef="let element"> {{element.userEmail}} </td>
+  </ng-container>
+  <ng-container matColumnDef="rol">
+    <th mat-header-cell *matHeaderCellDef> Rol </th>
+    <td mat-cell *matCellDef="let element"> {{element.userRolNavigation.rolDescripcion}} </td>
+  </ng-container>
+  <ng-container matColumnDef="weight">
+    <th mat-header-cell *matHeaderCellDef> Activo </th>
+    <td mat-cell *matCellDef="let element">
+      <mat-checkbox [disabled]="true" [checked]="element.userActivo"></mat-checkbox>
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="actions">
+    <th mat-header-cell *matHeaderCellDef> Acciones </th>
+    <td mat-cell *matCellDef="let element">
+      <div class="example-button-row">
+         <button mat-mini-fab color="basic" (click)="openDialog(element,true)">
+          <mat-icon>visibility</mat-icon>
+        </button>
+        <button mat-mini-fab color="primary" (click)="openDialog(element,false)">
+          <mat-icon>upgrade</mat-icon>
+        </button>
+      </div>
+    </td>
+  </ng-container>
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row class="example-element-row" *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

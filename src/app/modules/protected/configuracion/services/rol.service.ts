@@ -15,12 +15,18 @@ export class RolService {
   getAllRoles(){
     return this.httpClient.get<any>(url + 'Roles')
   }
-
+  getSelectedRoles(){
+    return this.httpClient.get<any>(url + 'Roles/Select')
+  }
   updateRol(id: number, value: any){
     return this.httpClient.put(url + 'Roles/'+id,value)
   }
 
   addRol(rol:any){
     return this.httpClient.post(url + 'Roles',rol);
+  }
+
+  deleteRol(id: number){
+    return this.httpClient.delete(url + 'Roles/'+ id);
   }
 }

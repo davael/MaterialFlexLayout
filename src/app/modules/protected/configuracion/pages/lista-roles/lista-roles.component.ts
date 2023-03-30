@@ -37,4 +37,10 @@ export class ListaRolesComponent implements OnInit {
     });
   }
 
+  borrarRol(id:number){
+    this._rolS.deleteRol(id).subscribe( x=> {
+      this.ngOnInit();
+    });
+  }
+
 }

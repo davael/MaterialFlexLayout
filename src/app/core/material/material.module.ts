@@ -16,6 +16,7 @@ import {MatDividerModule} from '@angular/material/divider';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatDialogModule} from '@angular/material/dialog';
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
+import {MatSelectModule} from '@angular/material/select';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
     MatDividerModule,
     MatCheckboxModule,
     MatDialogModule,
-    MatSlideToggleModule
+    MatSlideToggleModule,
+    MatSelectModule
 
   ],
   exports: [MatToolbarModule,
@@ -53,6 +55,7 @@ import {MatSlideToggleModule} from '@angular/material/slide-toggle';
     MatDividerModule,
     MatCheckboxModule,
     MatDialogModule,
-    MatSlideToggleModule]
+    MatSlideToggleModule,
+    MatSelectModule]
 })
 export class MaterialModule { }

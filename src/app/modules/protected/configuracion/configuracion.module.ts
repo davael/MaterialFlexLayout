@@ -8,6 +8,7 @@ import { ListaRolesComponent } from './pages/lista-roles/lista-roles.component';
 import { RolComponent } from './pages/rol/rol.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
+import { UsuarioComponent } from './pages/usuario/usuario.component';
 
 
 
@@ -16,7 +17,8 @@ import { FlexLayoutModule } from '@angular/flex-layout';
   declarations: [
     ListaUsuariosComponent,
     ListaRolesComponent,
-    RolComponent
+    RolComponent,
+    UsuarioComponent
   ],
   imports: [
     CommonModule,

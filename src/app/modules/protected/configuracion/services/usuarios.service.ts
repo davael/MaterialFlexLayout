@@ -19,7 +19,7 @@ export class UsuariosService {
   updateUser(id: number, value: any){
     return this.httpClient.put(url + 'Usuarios/'+id,value);
   }
-  addUser(rol:any){
-    return this.httpClient.post(url + 'Usuarios',rol);
+  addUser(user:any){
+    return this.httpClient.post(url + 'Usuarios',user);
   }
 }

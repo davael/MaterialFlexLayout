@@ -25,10 +25,10 @@ export class ListaUsuariosComponent implements OnInit {
     this.dataSource.filter = filterValue.trim().toLowerCase();
   }
 
-  openDialog(element: any, readOnly: boolean): void {
+  openDialog(element: any, readOnly: string): void {
      const dialogRef = this.dialog.open(UsuarioComponent, {
       width: '500px',
-      data: {read: readOnly, data: element},
+      data: {mode: readOnly, data: element},
     });
 
     dialogRef.afterClosed().subscribe(result => {

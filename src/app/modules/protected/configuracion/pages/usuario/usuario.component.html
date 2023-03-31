@@ -1,38 +1,43 @@
-<h1>Usuario</h1>
+<h1 mat-dialog-title>Usuario</h1>
 <mat-divider></mat-divider>
-<form [formGroup]="userForm">
-  <div fxLayout="row" fxLayoutAlign="space-around center"  fxLayout.xs="column">
-    <mat-form-field appearance="standard">
-      <mat-label>Usuario</mat-label>
-      <input matInput formControlName="userName">
-    </mat-form-field>
-    <mat-form-field appearance="standard">
-      <mat-label>Email</mat-label>
-      <input matInput formControlName="userEmail">
-    </mat-form-field>
-  </div>
-  <div fxLayout="row" fxLayoutAlign="space-around center"  fxLayout.xs="column">
-    <mat-form-field appearance="fill">
-      <mat-label>Rol</mat-label>
-      <mat-select  formControlName="userRolNavigation">
-        <mat-option *ngFor="let userRolNavigation of roles | async" [value]="userRolNavigation">
-          {{userRolNavigation.rolDescripcion}}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
-    <mat-slide-toggle formControlName="userActivo">Activo</mat-slide-toggle>
-  </div>
-  <div fxLayout="row" fxLayoutAlign="space-around center"  fxLayout.xs="column">
-    <mat-form-field appearance="standard">
-      <mat-label>Contraseña</mat-label>
-      <input matInput formControlName="password">
-    </mat-form-field>
-    <mat-form-field appearance="standard">
-      <mat-label>Email</mat-label>
-      <input matInput formControlName="userEmail">
-    </mat-form-field>
-  </div>
-
-    <!-- <button mat-button color="primary" (click)="updateRol()" *ngIf="!rolForm.disabled && !this.create">Actualizar</button>
-    <button mat-button color="primary" (click)="createRol()" *ngIf="!rolForm.disabled && this.create">Guardar</button> -->
-</form>
+<div mat-dialog-content>
+  <form [formGroup]="userForm">
+    <div fxLayout="row">
+      <mat-form-field appearance="standard" fxFlexOffset="5" fxFlex="40">
+        <mat-label>Usuario</mat-label>
+        <input matInput formControlName="userName" />
+      </mat-form-field>
+      <mat-form-field appearance="standard" fxFlexOffset="10" fxFlex="40">
+        <mat-label>Email</mat-label>
+        <input matInput formControlName="userEmail" />
+      </mat-form-field>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="space-around center" fxLayout.xs="column">
+        <mat-form-field appearance="standard" fxFlexOffset="5" fxFlex="40">
+          <mat-label>Rol</mat-label>
+          <mat-select formControlName="userRolNavigation" required="true">
+            <mat-option *ngFor="let rol of roles | async" [value]="rol.rolId">
+              {{ rol.rolDescripcion }}
+            </mat-option>
+          </mat-select>
+        </mat-form-field>
+        <div fxFlexOffset="10" fxFlex="40">
+          <mat-slide-toggle formControlName="userActivo">Activo</mat-slide-toggle>
+        </div>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="space-around center" fxLayout.xs="column" *ngIf="!userForm.disabled">
+      <mat-form-field appearance="standard" fxFlexOffset="5" fxFlex="40">
+        <mat-label>Contraseña</mat-label>
+        <input  matInput formControlName="userPass" type="password"/>
+      </mat-form-field>
+      <div fxFlexOffset="10" fxFlex="40" >
+        <mat-checkbox class="example-margin" (change)="changeAleatoria()" [checked]="aleatoria">Aleatoria</mat-checkbox>
+      </div>
+    </div>
+  </form>
+</div>
+<div mat-dialog-actions *ngIf="!userForm.disabled">
+  <button mat-button color="warn" mat-dialog-close>Cancelar</button>
+  <button mat-button *ngIf="this.data.mode=='create'" color="primary" [disabled]="!userForm.valid" (click)="guardarUsuario()">Guardar</button>
+  <button mat-button *ngIf="this.data.mode=='update'" color="primary" [disabled]="!userForm.valid" (click)="updateUsuario()">Actualizar</button>
+</div>

@@ -1,23 +1,38 @@
 <h1>Usuario</h1>
 <mat-divider></mat-divider>
 <form [formGroup]="userForm">
-  <mat-form-field appearance="standard">
-    <mat-label>Usuario</mat-label>
-    <input matInput formControlName="userName">
-  </mat-form-field>
-  <mat-form-field appearance="standard">
-    <mat-label>Email</mat-label>
-    <input matInput formControlName="userEmail">
-  </mat-form-field>
-  <mat-slide-toggle formControlName="userActivo">Activo</mat-slide-toggle>
-  <mat-form-field appearance="fill">
-    <mat-label>Rol</mat-label>
-    <mat-select  formControlName="userRolNavigation">
-      <mat-option *ngFor="let userRolNavigation of roles | async" [value]="userRolNavigation">
-        {{userRolNavigation.rolDescripcion}}
-      </mat-option>
-    </mat-select>
-  </mat-form-field>
+  <div fxLayout="row" fxLayoutAlign="space-around center"  fxLayout.xs="column">
+    <mat-form-field appearance="standard">
+      <mat-label>Usuario</mat-label>
+      <input matInput formControlName="userName">
+    </mat-form-field>
+    <mat-form-field appearance="standard">
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="userEmail">
+    </mat-form-field>
+  </div>
+  <div fxLayout="row" fxLayoutAlign="space-around center"  fxLayout.xs="column">
+    <mat-form-field appearance="fill">
+      <mat-label>Rol</mat-label>
+      <mat-select  formControlName="userRolNavigation">
+        <mat-option *ngFor="let userRolNavigation of roles | async" [value]="userRolNavigation">
+          {{userRolNavigation.rolDescripcion}}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-slide-toggle formControlName="userActivo">Activo</mat-slide-toggle>
+  </div>
+  <div fxLayout="row" fxLayoutAlign="space-around center"  fxLayout.xs="column">
+    <mat-form-field appearance="standard">
+      <mat-label>Contraseña</mat-label>
+      <input matInput formControlName="password">
+    </mat-form-field>
+    <mat-form-field appearance="standard">
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="userEmail">
+    </mat-form-field>
+  </div>
+
     <!-- <button mat-button color="primary" (click)="updateRol()" *ngIf="!rolForm.disabled && !this.create">Actualizar</button>
     <button mat-button color="primary" (click)="createRol()" *ngIf="!rolForm.disabled && this.create">Guardar</button> -->
 </form>

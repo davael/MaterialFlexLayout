@@ -3,6 +3,9 @@ import { MatDialog } from '@angular/material/dialog';
 import { RolService } from '../../services/rol.service';
 import { RolComponent } from '../rol/rol.component';
 import { ActionTable } from 'src/app/shared/models/action-table';
+import { ActionButtonColumn } from 'src/app/shared/models/action-button-column';
+import { TableColumn } from 'src/app/shared/models/table-column';
+import { RolGet } from '../../interfaces/rol-get';
 
 @Component({
   selector: 'app-lista-roles',
@@ -11,39 +14,16 @@ import { ActionTable } from 'src/app/shared/models/action-table';
 })
 export class ListaRolesComponent implements OnInit {
 
-  displayedColumns: any;
-  actionsButtons: any;
-  roles: any;
+  displayedColumns!: TableColumn[]
+  actionsButtons!: ActionButtonColumn[]
+  roles!: RolGet[];
 
   constructor( private _rolS: RolService, public dialog: MatDialog) { }
 
   ngOnInit(): void {
-    this._rolS.getAllRoles().subscribe( x=> {
-      this.roles = x;
-    })
+    this.getRoles();
     this.displayedColumns= this.getColumns();
-    this.actionsButtons = this.getButtons();
-  }
-
-  getColumns():  any[] {
-    return [
-      { caption: 'Id', field: 'rolId', type: 'number' , isSortable: false},
-      { caption: 'Descripción', field: 'rolDescripcion', type:'text' ,isSortable: false},
-      { caption: 'Activo', field: 'rolActivo',type:'checkbox' , isSortable: false}
-    ];
-  };
-  getButtons():  any[] {
-    return [
-      { title: 'Ver', icon: 'visibility', color: 'basic', action:'view'},
-      { title: 'Modificar', icon: 'upgrade', color: 'primary', action:'update'},
-      { title: 'Borrar', icon: 'delete', color: 'warn', action:'delete'},
-
-    ];
-  };
-
-  applyFilter(event: Event) {
-    const filterValue = (event.target as HTMLInputElement).value;
-    this.roles.filter = filterValue.trim().toLowerCase();
+    this.actionsButtons = this.getActionsButtons();
   }
 
   openDialog(element: any, readOnly: boolean): void {
@@ -53,13 +33,13 @@ export class ListaRolesComponent implements OnInit {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-       this.ngOnInit();
+       this.getRoles();
     });
   }
 
   borrarRol(id:number){
     this._rolS.deleteRol(id).subscribe( x=> {
-      this.ngOnInit();
+      this.getRoles();
     });
   }
   abreModal(data: ActionTable){
@@ -76,4 +56,24 @@ export class ListaRolesComponent implements OnInit {
       this.openDialog(null,false);
     }
   }
+
+  private getRoles(){
+    this._rolS.getAllRoles().subscribe( x=> {
+      this.roles = x;
+    })
+  }
+  private getActionsButtons():  ActionButtonColumn[] {
+    return [
+      new ActionButtonColumn('Ver','visibility','basic','view'),
+      new ActionButtonColumn('Modificar','upgrade','primary','update'),
+      new ActionButtonColumn('Borrar','delete','warn','delete'),
+    ];
+  };
+  private getColumns(): TableColumn[]{
+    return [
+      new TableColumn('Id','rolId','number',false),
+      new TableColumn('Descripción','rolDescripcion','text',false),
+      new TableColumn('Activo','rolActivo','checkbox',false),
+    ];
+  };
 }

@@ -2,8 +2,9 @@ import { AfterViewInit, Component, EventEmitter, Input, OnInit, Output, ViewChil
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort, Sort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
-import { TableButton, TableColumn } from '../interfaces/table-column';
 import { ActionTable } from '../models/action-table';
+import { ActionButtonColumn } from '../models/action-button-column';
+import { TableColumn } from '../models/table-column';
 
 @Component({
   selector: 'app-table-data',
@@ -16,7 +17,7 @@ export class TableComponent implements OnInit, AfterViewInit{
   public _dataSource = new MatTableDataSource<any>([]);
   public displayedColumns!: string[];
   @Input() columns!: TableColumn[];
-  @Input() buttons!: TableButton[];
+  @Input() buttons!: ActionButtonColumn[];
   @Input() isFilterable = false;
   @Input() isSortable = false;
 
@@ -56,11 +57,8 @@ export class TableComponent implements OnInit, AfterViewInit{
   }
 
   sortTable(sortParameters: any) {
-    console.log(sortParameters);
     // defining name of data property, to sort by, instead of column name
     sortParameters.active = this.columns.find(column => column.caption === sortParameters.active)!.field;
-    console.log(sortParameters);
-
     this.sort.emit(sortParameters);
   }
 

@@ -1,6 +1,6 @@
 # MaterialFlexLayout
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.1.1.
+Proyecto utilizando Angular 14, flex layout y Angular Material 14. En el mismo se realizan las funcionalidades con un enfoque de reutilizacion de componentes: tables, modals, alerts. etc.
 
 ## Development server
 

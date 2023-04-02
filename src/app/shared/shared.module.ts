@@ -5,13 +5,15 @@ import { MaterialModule } from '../core/material/material.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { RouterModule } from '@angular/router';
+import { TableComponent } from './table/table.component';
 
 
 
 @NgModule({
   declarations: [
     NavbarComponent,
-    SidebarComponent
+    SidebarComponent,
+    TableComponent
   ],
   imports: [
     CommonModule,
@@ -21,7 +23,8 @@ import { RouterModule } from '@angular/router';
   ],
   exports: [
     NavbarComponent,
-    SidebarComponent
+    SidebarComponent,
+    TableComponent
   ]
 })
 export class SharedModule { }

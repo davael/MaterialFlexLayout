@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { MatTableDataSource } from '@angular/material/table';
 import { RolService } from '../../services/rol.service';
 import { RolComponent } from '../rol/rol.component';
+import { ActionTable } from 'src/app/shared/models/action-table';
 
 @Component({
   selector: 'app-lista-roles',
@@ -11,19 +11,39 @@ import { RolComponent } from '../rol/rol.component';
 })
 export class ListaRolesComponent implements OnInit {
 
-  displayedColumns: string[] = ['position', 'name', 'weight','actions'];
-  dataSource: any;
+  displayedColumns: any;
+  actionsButtons: any;
+  roles: any;
+
   constructor( private _rolS: RolService, public dialog: MatDialog) { }
 
   ngOnInit(): void {
     this._rolS.getAllRoles().subscribe( x=> {
-      this.dataSource = new MatTableDataSource(x);
+      this.roles = x;
     })
+    this.displayedColumns= this.getColumns();
+    this.actionsButtons = this.getButtons();
   }
+
+  getColumns():  any[] {
+    return [
+      { caption: 'Id', field: 'rolId', type: 'number' , isSortable: false},
+      { caption: 'Descripción', field: 'rolDescripcion', type:'text' ,isSortable: false},
+      { caption: 'Activo', field: 'rolActivo',type:'checkbox' , isSortable: false}
+    ];
+  };
+  getButtons():  any[] {
+    return [
+      { title: 'Ver', icon: 'visibility', color: 'basic', action:'view'},
+      { title: 'Modificar', icon: 'upgrade', color: 'primary', action:'update'},
+      { title: 'Borrar', icon: 'delete', color: 'warn', action:'delete'},
+
+    ];
+  };
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
-    this.dataSource.filter = filterValue.trim().toLowerCase();
+    this.roles.filter = filterValue.trim().toLowerCase();
   }
 
   openDialog(element: any, readOnly: boolean): void {
@@ -42,5 +62,18 @@ export class ListaRolesComponent implements OnInit {
       this.ngOnInit();
     });
   }
-
+  abreModal(data: ActionTable){
+    if(data.action==='view'){
+      this.openDialog(data.object,true);
+    }
+    if(data.action ==='update'){
+      this.openDialog(data.object,false);
+    }
+    if(data.action ==='delete'){
+      this.borrarRol(data.object.rolId);
+    }
+    if(data.action ==='add'){
+      this.openDialog(null,false);
+    }
+  }
 }

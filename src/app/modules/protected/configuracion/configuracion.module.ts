@@ -9,6 +9,7 @@ import { RolComponent } from './pages/rol/rol.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { UsuarioComponent } from './pages/usuario/usuario.component';
+import { SharedModule } from 'src/app/shared/shared.module';
 
 
 
@@ -26,7 +27,8 @@ import { UsuarioComponent } from './pages/usuario/usuario.component';
     MaterialModule,
     FormsModule,
     ReactiveFormsModule,
-    FlexLayoutModule
+    FlexLayoutModule,
+    SharedModule
   ]
 })
 export class ConfiguracionModule { }

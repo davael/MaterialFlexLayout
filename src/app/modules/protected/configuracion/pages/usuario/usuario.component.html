@@ -38,6 +38,6 @@
 </div>
 <div mat-dialog-actions *ngIf="!userForm.disabled">
   <button mat-button color="warn" mat-dialog-close>Cancelar</button>
-  <button mat-button *ngIf="this.data.mode=='create'" color="primary" [disabled]="!userForm.valid" (click)="guardarUsuario()">Guardar</button>
-  <button mat-button *ngIf="this.data.mode=='update'" color="primary" [disabled]="!userForm.valid" (click)="updateUsuario()">Actualizar</button>
+  <button mat-button *ngIf="this.data.mode==='create'" color="primary" [disabled]="!userForm.valid" (click)="guardarUsuario()">Guardar</button>
+  <button mat-button *ngIf="this.data.mode==='update'" color="primary" [disabled]="!userForm.valid" (click)="updateUsuario()">Actualizar</button>
 </div>

@@ -25,9 +25,6 @@ export class TableComponent implements OnInit, AfterViewInit{
   @Output() create: EventEmitter<any> = new EventEmitter<any>();
   @Output() sort: EventEmitter<Sort> = new EventEmitter();
 
-/*   paginationSizes=[2,4,6];
-  defaultPageSize=4; */
-
   @Input() set dataSource(data: any[]) {
     this.setDataSource(data);
   }

@@ -6,6 +6,8 @@ import { ActionTable } from 'src/app/shared/models/action-table';
 import { ActionButtonColumn } from 'src/app/shared/models/action-button-column';
 import { TableColumn } from 'src/app/shared/models/table-column';
 import { RolGet } from '../../interfaces/rol-get';
+import { TableParameter } from 'src/app/shared/models/table-parameter';
+import { TablePagination } from 'src/app/shared/models/table-pagination';
 
 @Component({
   selector: 'app-lista-roles',
@@ -14,16 +16,15 @@ import { RolGet } from '../../interfaces/rol-get';
 })
 export class ListaRolesComponent implements OnInit {
 
-  displayedColumns!: TableColumn[]
-  actionsButtons!: ActionButtonColumn[]
+  tableParameters!: TableParameter;
   roles!: RolGet[];
 
   constructor( private _rolS: RolService, public dialog: MatDialog) { }
 
   ngOnInit(): void {
     this.getRoles();
-    this.displayedColumns= this.getColumns();
-    this.actionsButtons = this.getActionsButtons();
+    let tablePagination= new TablePagination(true,[2,4,6],4);
+    this.tableParameters= new TableParameter(this.getColumns(),this.getActionsButtons(),true,tablePagination,true);
   }
 
   openDialog(element: any, readOnly: boolean): void {

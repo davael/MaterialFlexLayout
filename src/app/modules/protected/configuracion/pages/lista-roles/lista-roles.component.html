@@ -1,12 +1,7 @@
 <h1>Rol</h1>
 <mat-divider></mat-divider>
-
 <app-table-data [dataSource]="roles"
-                [columns]="displayedColumns"
-                [buttons]="actionsButtons"
-                [isFilterable]="true"
-                [isPageable]="true"
-                [createdButton]="true"
+                [tableParameters]="this.tableParameters"
                 (rowAction)="abreModal($event)"
                 (create)="abreModal($event)">
 </app-table-data>

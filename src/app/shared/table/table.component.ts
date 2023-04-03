@@ -5,6 +5,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { ActionTable } from '../models/action-table';
 import { ActionButtonColumn } from '../models/action-button-column';
 import { TableColumn } from '../models/table-column';
+import { TableParameter } from '../models/table-parameter';
 
 @Component({
   selector: 'app-table-data',
@@ -14,25 +15,18 @@ import { TableColumn } from '../models/table-column';
 export class TableComponent implements OnInit, AfterViewInit{
   @ViewChild(MatPaginator, {static: false}) matPaginator!: MatPaginator;
   @ViewChild(MatSort, {static: true}) matSort!: MatSort;
+
+  @Input() tableParameters!: TableParameter;
+
   public _dataSource = new MatTableDataSource<any>([]);
   public displayedColumns!: string[];
-  @Input() columns!: TableColumn[];
-  @Input() buttons!: ActionButtonColumn[];
-  @Input() isFilterable = false;
-  @Input() isSortable = false;
-
-  @Input() isPageable = false;
-
-  @Input() createdButton = false;
-
-
 
   @Output() rowAction: EventEmitter<any> = new EventEmitter<any>();
   @Output() create: EventEmitter<any> = new EventEmitter<any>();
   @Output() sort: EventEmitter<Sort> = new EventEmitter();
 
-  paginationSizes=[2,4,6];
-  defaultPageSize=4;
+/*   paginationSizes=[2,4,6];
+  defaultPageSize=4; */
 
   @Input() set dataSource(data: any[]) {
     this.setDataSource(data);
@@ -41,8 +35,8 @@ export class TableComponent implements OnInit, AfterViewInit{
   constructor() { }
 
   ngOnInit(): void {
-    this.displayedColumns = this.columns.map((tableColumn: TableColumn) => tableColumn.caption);
-    if(this.buttons){
+    this.displayedColumns = this.tableParameters.columns.map((tableColumn: TableColumn) => tableColumn.caption);
+    if(this.tableParameters.buttons){
       this.displayedColumns.push('actions');
     }
   }
@@ -58,7 +52,7 @@ export class TableComponent implements OnInit, AfterViewInit{
 
   sortTable(sortParameters: any) {
     // defining name of data property, to sort by, instead of column name
-    sortParameters.active = this.columns.find(column => column.caption === sortParameters.active)!.field;
+    sortParameters.active = this.tableParameters.columns.find(column => column.caption === sortParameters.active)!.field;
     this.sort.emit(sortParameters);
   }
 

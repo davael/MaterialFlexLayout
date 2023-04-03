@@ -65,7 +65,11 @@ export class TableComponent implements OnInit, AfterViewInit{
 
   createItem(row: any, action:string){
     let actionResult= new ActionTable(row,action);
-    console.log(actionResult);
     this.create.emit(actionResult);
   }
+
+
+propertyAccess= (obj:any, path:any) => (
+  path.split('.').reduce((o: any, p:any) => o && o[p], obj)
+)
 }

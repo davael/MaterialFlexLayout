@@ -28,7 +28,7 @@
 
       <div *ngIf="c.type!=='checkbox';else esCheckbox">
         <td mat-cell *matCellDef="let element">
-          {{element[c.field]}}
+          {{propertyAccess(element,c.field)}}
         </td>
       </div>
       <ng-template #esCheckbox>

@@ -23,7 +23,7 @@ export class UsuarioComponent implements OnInit {
     if(this.data.mode == 'view'){
       this.createLoadUserForm();
     }
-    if(this.data.mode == 'create'){
+    if(this.data.mode == 'add'){
       this.createUserForm();
     }
     if(this.data.mode =='update'){

@@ -6,6 +6,7 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { SidebarComponent } from './sidebar/sidebar.component';
 import { RouterModule } from '@angular/router';
 import { TableComponent } from './table/table.component';
+import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
 
 
 
@@ -13,7 +14,8 @@ import { TableComponent } from './table/table.component';
   declarations: [
     NavbarComponent,
     SidebarComponent,
-    TableComponent
+    TableComponent,
+    ConfirmDialogComponent
   ],
   imports: [
     CommonModule,

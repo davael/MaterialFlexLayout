@@ -3,6 +3,12 @@ import { MatDialog } from '@angular/material/dialog';
 import { MatTableDataSource } from '@angular/material/table';
 import { UsuariosService } from '../../services/usuarios.service';
 import { UsuarioComponent } from '../usuario/usuario.component';
+import { TableParameter } from 'src/app/shared/models/table-parameter';
+import { ConfirmDialogService } from 'src/app/shared/services/confirm-dialog.service';
+import { TablePagination } from 'src/app/shared/models/table-pagination';
+import { TableColumn } from 'src/app/shared/models/table-column';
+import { ActionButtonColumn } from 'src/app/shared/models/action-button-column';
+import { ActionTable } from 'src/app/shared/models/action-table';
 
 @Component({
   selector: 'app-lista-usuarios',
@@ -10,19 +16,16 @@ import { UsuarioComponent } from '../usuario/usuario.component';
   styleUrls: ['./lista-usuarios.component.scss']
 })
 export class ListaUsuariosComponent implements OnInit {
-  dataSource: any;
-  displayedColumns: string[] = ['position', 'name','email','rol' , 'weight','actions'];
-  constructor(private _userS: UsuariosService, public dialog: MatDialog) { }
+  usuarios!: any[];
+  tableParameters!: TableParameter;
+
+  constructor(private _userS: UsuariosService, public dialog: MatDialog,private dialogService: ConfirmDialogService) { }
 
   ngOnInit(): void {
-    this._userS.getAllUsers().subscribe( x => {
-      this.dataSource = new MatTableDataSource(x);
-    })
-  }
 
-  applyFilter(event: Event) {
-    const filterValue = (event.target as HTMLInputElement).value;
-    this.dataSource.filter = filterValue.trim().toLowerCase();
+    this.getUsuarios();
+    let tablePagination = new TablePagination(true, [2, 4, 6], 4);
+    this.tableParameters = new TableParameter(this.getColumns(), this.getActionsButtons(), true, tablePagination, true);
   }
 
   openDialog(element: any, readOnly: string): void {
@@ -30,10 +33,35 @@ export class ListaUsuariosComponent implements OnInit {
       width: '500px',
       data: {mode: readOnly, data: element},
     });
-
     dialogRef.afterClosed().subscribe(result => {
        this.ngOnInit();
     });
   }
 
+  abreModal(data:ActionTable){
+    this.openDialog(data.object, data.action);
+  }
+
+  private getUsuarios(){
+    this._userS.getAllUsers().subscribe( x => {
+      this.usuarios=x;
+    })
+  }
+
+  private getActionsButtons(): ActionButtonColumn[] {
+    return [
+      new ActionButtonColumn('Ver', 'visibility', 'basic', 'view'),
+      new ActionButtonColumn('Modificar', 'upgrade', 'primary', 'update')
+    ];
+  };
+
+  private getColumns(): TableColumn[] {
+    return [
+      new TableColumn('Id', 'userId', 'number', false),
+      new TableColumn('Usuario', 'userName', 'text', false),
+      new TableColumn('Email', 'userEmail', 'text', false),
+      new TableColumn('Activo', 'userActivo', 'checkbox', false),
+      new TableColumn('Rol', 'userRolNavigation.rolDescripcion', 'text', false)
+    ];
+  };
 }

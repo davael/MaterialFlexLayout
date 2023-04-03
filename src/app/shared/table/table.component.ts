@@ -3,7 +3,6 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort, Sort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { ActionTable } from '../models/action-table';
-import { ActionButtonColumn } from '../models/action-button-column';
 import { TableColumn } from '../models/table-column';
 import { TableParameter } from '../models/table-parameter';
 

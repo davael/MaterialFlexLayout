@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment.prod';
+import { IUserGet } from '../interfaces/user-get';
 
 const url = environment.APIUrl;
 @Injectable({
@@ -11,10 +12,10 @@ export class UsuariosService {
   constructor(private httpClient: HttpClient) { }
 
   getAllUsers(){
-    return this.httpClient.get<any>(url + 'Usuarios');
+    return this.httpClient.get<IUserGet[]>(url + 'Usuarios');
   }
   getByIdUser(id: number){
-    return this.httpClient.get<any>(url + 'Usuarios/' + id);
+    return this.httpClient.get<IUserGet>(url + 'Usuarios/' + id);
   }
   updateUser(id: number, value: any){
     return this.httpClient.put(url + 'Usuarios/'+id,value);

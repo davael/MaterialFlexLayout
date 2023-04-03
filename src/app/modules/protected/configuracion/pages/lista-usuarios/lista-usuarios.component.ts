@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { MatTableDataSource } from '@angular/material/table';
 import { UsuariosService } from '../../services/usuarios.service';
 import { UsuarioComponent } from '../usuario/usuario.component';
 import { TableParameter } from 'src/app/shared/models/table-parameter';
@@ -9,6 +8,7 @@ import { TablePagination } from 'src/app/shared/models/table-pagination';
 import { TableColumn } from 'src/app/shared/models/table-column';
 import { ActionButtonColumn } from 'src/app/shared/models/action-button-column';
 import { ActionTable } from 'src/app/shared/models/action-table';
+import { IUserGet } from '../../interfaces/user-get';
 
 @Component({
   selector: 'app-lista-usuarios',
@@ -16,7 +16,7 @@ import { ActionTable } from 'src/app/shared/models/action-table';
   styleUrls: ['./lista-usuarios.component.scss']
 })
 export class ListaUsuariosComponent implements OnInit {
-  usuarios!: any[];
+  usuarios!: IUserGet[];
   tableParameters!: TableParameter;
 
   constructor(private _userS: UsuariosService, public dialog: MatDialog,private dialogService: ConfirmDialogService) { }
@@ -24,7 +24,7 @@ export class ListaUsuariosComponent implements OnInit {
   ngOnInit(): void {
 
     this.getUsuarios();
-    let tablePagination = new TablePagination(true, [2, 4, 6], 4);
+    let tablePagination = new TablePagination(true, [2, 5, 10], 5);
     this.tableParameters = new TableParameter(this.getColumns(), this.getActionsButtons(), true, tablePagination, true);
   }
 

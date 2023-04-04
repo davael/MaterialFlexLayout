@@ -16,18 +16,8 @@
     <!--     <button mat-menu-item [matMenuTriggerFor]="consul">SubModule 2</button> -->
   </mat-menu>
   <mat-menu #users="matMenu">
-    <a
-      mat-menu-item
-      routerLinkActive="list-item-active"
-      [routerLink]="['/configuracion/roles']"
-      >Roles</a
-    >
-    <a
-      mat-menu-item
-      routerLinkActive="list-item-active"
-      [routerLink]="['/configuracion/usuarios']"
-      >Usuarios</a
-    >
+    <a mat-menu-item routerLinkActive="list-item-active" [routerLink]="['/configuracion/roles']">Roles</a>
+    <a mat-menu-item routerLinkActive="list-item-active" [routerLink]="['/configuracion/usuarios']">Usuarios</a>
   </mat-menu>
   <!--   <mat-menu #consul="matMenu">
     <a mat-menu-item routerLinkActive="list-item-active" [routerLink]="['/configuracion/agendas']">Submodule 2a</a>

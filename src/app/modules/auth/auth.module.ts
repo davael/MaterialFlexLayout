@@ -8,12 +8,6 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   declarations: [LoginComponent],
-  imports: [
-    CommonModule,
-    AuthRoutingModule,
-    MaterialModule,
-    ReactiveFormsModule,
-    FlexLayoutModule,
-  ],
+  imports: [CommonModule, AuthRoutingModule, MaterialModule, ReactiveFormsModule, FlexLayoutModule],
 })
 export class AuthModule {}

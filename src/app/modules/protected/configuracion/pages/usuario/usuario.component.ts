@@ -1,14 +1,10 @@
 import { Component, Inject, OnInit } from '@angular/core';
-import {
-  FormBuilder,
-  FormControl,
-  FormGroup,
-  Validators,
-} from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { Observable } from 'rxjs';
 import { RolService } from '../../services/rol.service';
 import { UsuariosService } from '../../services/usuarios.service';
+import { RolGet } from '../../interfaces/rol-get';
 
 @Component({
   selector: 'app-usuario',
@@ -17,7 +13,7 @@ import { UsuariosService } from '../../services/usuarios.service';
 })
 export class UsuarioComponent implements OnInit {
   userForm!: FormGroup;
-  roles!: Observable<any[]>;
+  roles!: Observable<RolGet[]>;
   setPass = false;
 
   aleatoria = true;
@@ -92,7 +88,7 @@ export class UsuarioComponent implements OnInit {
         userEmail: this.userForm.controls['userEmail'].value,
         userRol: this.userForm.controls['userRolNavigation'].value,
       })
-      .subscribe(x => {
+      .subscribe(() => {
         this.dialogRef.close();
       });
   }
@@ -107,7 +103,7 @@ export class UsuarioComponent implements OnInit {
         userRol: this.userForm.controls['userRolNavigation'].value,
         userActivo: this.userForm.controls['userActivo'].value,
       })
-      .subscribe(x => {
+      .subscribe(() => {
         this.dialogRef.close();
       });
   }

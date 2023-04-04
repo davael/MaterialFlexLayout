@@ -1,12 +1,4 @@
-import {
-  AfterViewInit,
-  Component,
-  EventEmitter,
-  Input,
-  OnInit,
-  Output,
-  ViewChild,
-} from '@angular/core';
+import { AfterViewInit, Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatSort, Sort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
@@ -40,9 +32,7 @@ export class TableComponent implements OnInit, AfterViewInit {
   constructor() {}
 
   ngOnInit(): void {
-    this.displayedColumns = this.tableParameters.columns.map(
-      (tableColumn: TableColumn) => tableColumn.caption
-    );
+    this.displayedColumns = this.tableParameters.columns.map((tableColumn: TableColumn) => tableColumn.caption);
     if (this.tableParameters.buttons) {
       this.displayedColumns.push('actions');
     }
@@ -81,6 +71,5 @@ export class TableComponent implements OnInit, AfterViewInit {
     this.create.emit(actionResult);
   }
 
-  propertyAccess = (obj: any, path: any) =>
-    path.split('.').reduce((o: any, p: any) => o && o[p], obj);
+  propertyAccess = (obj: any, path: any) => path.split('.').reduce((o: any, p: any) => o && o[p], obj);
 }

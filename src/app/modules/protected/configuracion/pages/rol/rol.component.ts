@@ -47,11 +47,9 @@ export class RolComponent implements OnInit {
     });
     this.dialogService.confirmed().subscribe(confirmed => {
       if (confirmed) {
-        this.rolS
-          .updateRol(this.rolForm.controls['rolId'].value, this.rolForm.value)
-          .subscribe(x => {
-            this.dialogRef.close();
-          });
+        this.rolS.updateRol(this.rolForm.controls['rolId'].value, this.rolForm.value).subscribe(x => {
+          this.dialogRef.close();
+        });
       }
     });
   }

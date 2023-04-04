@@ -12,10 +12,7 @@
         <input matInput formControlName="userEmail" />
       </mat-form-field>
     </div>
-    <div
-      fxLayout="row"
-      fxLayoutAlign="space-around center"
-      fxLayout.xs="column">
+    <div fxLayout="row" fxLayoutAlign="space-around center" fxLayout.xs="column">
       <mat-form-field appearance="standard" fxFlexOffset="5" fxFlex="40">
         <mat-label>Rol</mat-label>
         <mat-select formControlName="userRolNavigation" required="true">
@@ -28,22 +25,13 @@
         <mat-slide-toggle formControlName="userActivo">Activo</mat-slide-toggle>
       </div>
     </div>
-    <div
-      fxLayout="row"
-      fxLayoutAlign="space-around center"
-      fxLayout.xs="column"
-      *ngIf="!userForm.disabled">
+    <div fxLayout="row" fxLayoutAlign="space-around center" fxLayout.xs="column" *ngIf="!userForm.disabled">
       <mat-form-field appearance="standard" fxFlexOffset="5" fxFlex="40">
         <mat-label>Contraseña</mat-label>
         <input matInput formControlName="userPass" type="password" />
       </mat-form-field>
       <div fxFlexOffset="10" fxFlex="40">
-        <mat-checkbox
-          class="example-margin"
-          (change)="changeAleatoria()"
-          [checked]="aleatoria"
-          >Aleatoria</mat-checkbox
-        >
+        <mat-checkbox class="example-margin" (change)="changeAleatoria()" [checked]="aleatoria">Aleatoria</mat-checkbox>
       </div>
     </div>
   </form>

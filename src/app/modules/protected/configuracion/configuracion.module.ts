@@ -12,12 +12,7 @@ import { UsuarioComponent } from './pages/usuario/usuario.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
-  declarations: [
-    ListaUsuariosComponent,
-    ListaRolesComponent,
-    RolComponent,
-    UsuarioComponent,
-  ],
+  declarations: [ListaUsuariosComponent, ListaRolesComponent, RolComponent, UsuarioComponent],
   imports: [
     CommonModule,
     ConfiguracionRoutingModule,

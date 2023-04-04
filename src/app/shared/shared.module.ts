@@ -9,12 +9,7 @@ import { TableComponent } from './table/table.component';
 import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
 
 @NgModule({
-  declarations: [
-    NavbarComponent,
-    SidebarComponent,
-    TableComponent,
-    ConfirmDialogComponent,
-  ],
+  declarations: [NavbarComponent, SidebarComponent, TableComponent, ConfirmDialogComponent],
   imports: [CommonModule, MaterialModule, FlexLayoutModule, RouterModule],
   exports: [NavbarComponent, SidebarComponent, TableComponent],
 })

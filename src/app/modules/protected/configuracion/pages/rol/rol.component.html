@@ -13,10 +13,6 @@
 </mat-dialog-content>
 <mat-dialog-actions *ngIf="!rolForm.disabled">
   <button mat-button mat-dialog-close>Cancel</button>
-  <button mat-button color="primary" (click)="updateRol()" *ngIf="!this.create">
-    Actualizar
-  </button>
-  <button mat-button color="primary" (click)="createRol()" *ngIf="this.create">
-    Guardar
-  </button>
+  <button mat-button color="primary" (click)="updateRol()" *ngIf="!this.create">Actualizar</button>
+  <button mat-button color="primary" (click)="createRol()" *ngIf="this.create">Guardar</button>
 </mat-dialog-actions>

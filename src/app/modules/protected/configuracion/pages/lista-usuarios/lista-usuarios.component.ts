@@ -19,22 +19,12 @@ export class ListaUsuariosComponent implements OnInit {
   usuarios!: IUserGet[];
   tableParameters!: TableParameter;
 
-  constructor(
-    private _userS: UsuariosService,
-    public dialog: MatDialog,
-    private dialogService: ConfirmDialogService
-  ) {}
+  constructor(private _userS: UsuariosService, public dialog: MatDialog, private dialogService: ConfirmDialogService) {}
 
   ngOnInit(): void {
     this.getUsuarios();
     const tablePagination = new TablePagination(true, [2, 5, 10], 5);
-    this.tableParameters = new TableParameter(
-      this.getColumns(),
-      this.getActionsButtons(),
-      true,
-      tablePagination,
-      true
-    );
+    this.tableParameters = new TableParameter(this.getColumns(), this.getActionsButtons(), true, tablePagination, true);
   }
 
   openDialog(element: any, readOnly: string): void {

@@ -21,17 +21,15 @@ export class AuthService {
   }
 
   login(credentials: any) {
-    return this.httpClient
-      .post(url + `${url}login/authenticate`, credentials)
-      .pipe(
-        tap(token => {
-          this.handleSuccesfulLogin(token);
-        }),
-        catchError(error => {
-          console.log(error);
-          return EMPTY;
-        })
-      );
+    return this.httpClient.post(url + `${url}login/authenticate`, credentials).pipe(
+      tap(token => {
+        this.handleSuccesfulLogin(token);
+      }),
+      catchError(error => {
+        console.log(error);
+        return EMPTY;
+      })
+    );
   }
 
   private handleSuccesfulLogin(token: any): void {

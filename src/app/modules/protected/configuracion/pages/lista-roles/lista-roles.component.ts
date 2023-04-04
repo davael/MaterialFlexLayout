@@ -19,22 +19,12 @@ export class ListaRolesComponent implements OnInit {
   tableParameters!: TableParameter;
   roles!: RolGet[];
 
-  constructor(
-    private _rolS: RolService,
-    public dialog: MatDialog,
-    private dialogService: ConfirmDialogService
-  ) {}
+  constructor(private _rolS: RolService, public dialog: MatDialog, private dialogService: ConfirmDialogService) {}
 
   ngOnInit(): void {
     this.getRoles();
     const tablePagination = new TablePagination(true, [2, 4, 6], 4);
-    this.tableParameters = new TableParameter(
-      this.getColumns(),
-      this.getActionsButtons(),
-      true,
-      tablePagination,
-      true
-    );
+    this.tableParameters = new TableParameter(this.getColumns(), this.getActionsButtons(), true, tablePagination, true);
   }
 
   openDialog(element: any, readOnly: boolean): void {

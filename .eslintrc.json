@@ -23,6 +23,8 @@
         "plugin:prettier/recommended"
       ],
       "rules": {
+        "no-console": 2,
+        "no-undef": "off",
         "@angular-eslint/directive-selector": [
           "error",
           {

@@ -1,10 +1,10 @@
-import { RolGet } from "./rol-get";
+import { RolGet } from './rol-get';
 
 export interface IUserGet {
-  userId:            number;
-  userPass:          string;
-  userName:          string;
-  userEmail:         string;
-  userActivo:        boolean;
+  userId: number;
+  userPass: string;
+  userName: string;
+  userEmail: string;
+  userActivo: boolean;
   userRolNavigation: RolGet;
 }

@@ -7,14 +7,18 @@ import { ConfirmDialogService } from 'src/app/shared/services/confirm-dialog.ser
 @Component({
   selector: 'app-rol',
   templateUrl: './rol.component.html',
-  styleUrls: ['./rol.component.scss']
+  styleUrls: ['./rol.component.scss'],
 })
 export class RolComponent implements OnInit {
-
   rolForm!: FormGroup;
   create = false;
-  constructor(public dialogRef: MatDialogRef<RolComponent>,
-    @Inject(MAT_DIALOG_DATA) public data: any, private formBuilder: FormBuilder, private rolS: RolService, private dialogService: ConfirmDialogService) { }
+  constructor(
+    public dialogRef: MatDialogRef<RolComponent>,
+    @Inject(MAT_DIALOG_DATA) public data: any,
+    private formBuilder: FormBuilder,
+    private rolS: RolService,
+    private dialogService: ConfirmDialogService
+  ) {}
 
   ngOnInit(): void {
     this.createRolForm();
@@ -28,32 +32,43 @@ export class RolComponent implements OnInit {
       this.rolForm = new FormGroup({
         rolId: new FormControl(0),
         rolDescripcion: new FormControl(''),
-        rolActivo: new FormControl('')
+        rolActivo: new FormControl(''),
       });
     }
-    if (this.data.read)
-      this.rolForm.disable();
+    if (this.data.read) this.rolForm.disable();
   }
 
   updateRol() {
-    this.dialogService.open({ title: 'Modificar Rol', message: 'Seguro que desea modificar el rol?', cancelText: 'cancelar', confirmText: 'confirmar' });
+    this.dialogService.open({
+      title: 'Modificar Rol',
+      message: 'Seguro que desea modificar el rol?',
+      cancelText: 'cancelar',
+      confirmText: 'confirmar',
+    });
     this.dialogService.confirmed().subscribe(confirmed => {
       if (confirmed) {
-        this.rolS.updateRol(this.rolForm.controls['rolId'].value, this.rolForm.value).subscribe(x => {
-          this.dialogRef.close();
-        })
+        this.rolS
+          .updateRol(this.rolForm.controls['rolId'].value, this.rolForm.value)
+          .subscribe(x => {
+            this.dialogRef.close();
+          });
       }
-    })
+    });
   }
 
   createRol() {
-    this.dialogService.open({ title: 'Creat Rol', message: 'Seguro que desea crear el rol?', cancelText: 'cancelar', confirmText: 'confirmar' });
+    this.dialogService.open({
+      title: 'Creat Rol',
+      message: 'Seguro que desea crear el rol?',
+      cancelText: 'cancelar',
+      confirmText: 'confirmar',
+    });
     this.dialogService.confirmed().subscribe(confirmed => {
       if (confirmed) {
         this.rolS.addRol(this.rolForm.value).subscribe(x => {
           this.dialogRef.close();
-        })
+        });
       }
-    })
+    });
   }
 }

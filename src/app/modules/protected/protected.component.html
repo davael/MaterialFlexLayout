@@ -1,6 +1,12 @@
 <app-navbar (sidenavToogle)="sidenav.toggle()"></app-navbar>
 <mat-sidenav-container class="example-container" autosize>
-  <mat-sidenav (mouseenter)="onSinenavToggle()" (mouseleave)="onSinenavToggleOut()" #sidenav class="example-sidenav" mode="side" opened="true">
+  <mat-sidenav
+    (mouseenter)="onSinenavToggle()"
+    (mouseleave)="onSinenavToggleOut()"
+    #sidenav
+    class="example-sidenav"
+    mode="side"
+    opened="true">
     <app-sidebar></app-sidebar>
   </mat-sidenav>
   <mat-sidenav-content>

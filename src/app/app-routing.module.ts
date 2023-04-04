@@ -3,18 +3,21 @@ import { RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
-    path:'auth',
-    loadChildren: () => import('./modules/auth/auth.module').then(m => m.AuthModule)
+    path: 'auth',
+    loadChildren: () =>
+      import('./modules/auth/auth.module').then(m => m.AuthModule),
   },
   {
-    path:'',
-    loadChildren: () => import('./modules/protected/protected.module').then(m => m.ProtectedModule)
+    path: '',
+    loadChildren: () =>
+      import('./modules/protected/protected.module').then(
+        m => m.ProtectedModule
+      ),
   },
-
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class AppRoutingModule { }
+export class AppRoutingModule {}

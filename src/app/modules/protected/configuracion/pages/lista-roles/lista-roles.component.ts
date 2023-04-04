@@ -9,24 +9,32 @@ import { RolGet } from '../../interfaces/rol-get';
 import { TableParameter } from 'src/app/shared/models/table-parameter';
 import { TablePagination } from 'src/app/shared/models/table-pagination';
 import { ConfirmDialogService } from 'src/app/shared/services/confirm-dialog.service';
-import { NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-lista-roles',
   templateUrl: './lista-roles.component.html',
-  styleUrls: ['./lista-roles.component.scss']
+  styleUrls: ['./lista-roles.component.scss'],
 })
 export class ListaRolesComponent implements OnInit {
-
   tableParameters!: TableParameter;
   roles!: RolGet[];
 
-  constructor(private _rolS: RolService, public dialog: MatDialog, private dialogService: ConfirmDialogService) { }
+  constructor(
+    private _rolS: RolService,
+    public dialog: MatDialog,
+    private dialogService: ConfirmDialogService
+  ) {}
 
   ngOnInit(): void {
     this.getRoles();
-    let tablePagination = new TablePagination(true, [2, 4, 6], 4);
-    this.tableParameters = new TableParameter(this.getColumns(), this.getActionsButtons(), true, tablePagination, true);
+    const tablePagination = new TablePagination(true, [2, 4, 6], 4);
+    this.tableParameters = new TableParameter(
+      this.getColumns(),
+      this.getActionsButtons(),
+      true,
+      tablePagination,
+      true
+    );
   }
 
   openDialog(element: any, readOnly: boolean): void {
@@ -53,12 +61,17 @@ export class ListaRolesComponent implements OnInit {
       this.openDialog(data.object, false);
     }
     if (data.action === 'delete') {
-      this.dialogService.open({ title: 'Eliminar Rol', message: 'Seguro que desea eliminar el rol?', cancelText: 'cancelar', confirmText: 'confirmar' });
+      this.dialogService.open({
+        title: 'Eliminar Rol',
+        message: 'Seguro que desea eliminar el rol?',
+        cancelText: 'cancelar',
+        confirmText: 'confirmar',
+      });
       this.dialogService.confirmed().subscribe(confirmed => {
         if (confirmed) {
           this.borrarRol(data.object.rolId);
         }
-      })
+      });
     }
     if (data.action === 'add') {
       this.openDialog(null, false);
@@ -68,7 +81,7 @@ export class ListaRolesComponent implements OnInit {
   private getRoles() {
     this._rolS.getAllRoles().subscribe(x => {
       this.roles = x;
-    })
+    });
   }
   private getActionsButtons(): ActionButtonColumn[] {
     return [
@@ -76,12 +89,12 @@ export class ListaRolesComponent implements OnInit {
       new ActionButtonColumn('Modificar', 'upgrade', 'primary', 'update'),
       new ActionButtonColumn('Borrar', 'delete', 'warn', 'delete'),
     ];
-  };
+  }
   private getColumns(): TableColumn[] {
     return [
       new TableColumn('Id', 'rolId', 'number', false),
       new TableColumn('Descripción', 'rolDescripcion', 'text', false),
       new TableColumn('Activo', 'rolActivo', 'checkbox', false),
     ];
-  };
+  }
 }

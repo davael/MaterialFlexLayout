@@ -1,5 +1,5 @@
 <mat-nav-list>
-<!--   <a mat-list-item routerLinkActive="list-item-active" routerLink="/module1">
+  <!--   <a mat-list-item routerLinkActive="list-item-active" routerLink="/module1">
     <mat-icon mat-list-icon>people</mat-icon>
     <h4 mat-line *ngIf="this.fullSidenav$|async">Module 1</h4>
   </a>
@@ -9,17 +9,27 @@
   </a> -->
   <a mat-list-item [matMenuTriggerFor]="animals">
     <mat-icon mat-list-icon>settings</mat-icon>
-    <h4 mat-line *ngIf="this.fullSidenav$|async">Configuración</h4>
+    <h4 mat-line *ngIf="this.fullSidenav$ | async">Configuración</h4>
   </a>
   <mat-menu #animals="matMenu">
     <button mat-menu-item [matMenuTriggerFor]="users">Seguridad</button>
-<!--     <button mat-menu-item [matMenuTriggerFor]="consul">SubModule 2</button> -->
+    <!--     <button mat-menu-item [matMenuTriggerFor]="consul">SubModule 2</button> -->
   </mat-menu>
   <mat-menu #users="matMenu">
-    <a mat-menu-item routerLinkActive="list-item-active" [routerLink]="['/configuracion/roles']">Roles</a>
-    <a mat-menu-item routerLinkActive="list-item-active" [routerLink]="['/configuracion/usuarios']">Usuarios</a>
+    <a
+      mat-menu-item
+      routerLinkActive="list-item-active"
+      [routerLink]="['/configuracion/roles']"
+      >Roles</a
+    >
+    <a
+      mat-menu-item
+      routerLinkActive="list-item-active"
+      [routerLink]="['/configuracion/usuarios']"
+      >Usuarios</a
+    >
   </mat-menu>
-<!--   <mat-menu #consul="matMenu">
+  <!--   <mat-menu #consul="matMenu">
     <a mat-menu-item routerLinkActive="list-item-active" [routerLink]="['/configuracion/agendas']">Submodule 2a</a>
     <a mat-menu-item routerLinkActive="list-item-active" [routerLink]="['/configuracion/profesionales']">Submodule 2b</a>
     <a mat-menu-item routerLinkActive="list-item-active" [routerLink]="['/configuracion/practicas']">Submodule 2c</a>

@@ -6,18 +6,14 @@ import { MaterialModule } from '../../core/material/material.module';
 import { ReactiveFormsModule } from '@angular/forms';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
-
-
 @NgModule({
-  declarations: [
-    LoginComponent,
-  ],
+  declarations: [LoginComponent],
   imports: [
     CommonModule,
     AuthRoutingModule,
     MaterialModule,
     ReactiveFormsModule,
-    FlexLayoutModule
-  ]
+    FlexLayoutModule,
+  ],
 })
-export class AuthModule { }
+export class AuthModule {}

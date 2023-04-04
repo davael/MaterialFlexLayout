@@ -1,10 +1,14 @@
 export class TablePagination {
-  isPageable: boolean= false;
+  isPageable = false;
   paginationSizes!: number[];
   defaultPageSize!: number;
-  constructor(isPageable: boolean,paginationSizes: number[],defaultPageSize: number){
-    this.isPageable=isPageable;
-    this.paginationSizes= paginationSizes;
-    this.defaultPageSize= defaultPageSize;
+  constructor(
+    isPageable: boolean,
+    paginationSizes: number[],
+    defaultPageSize: number
+  ) {
+    this.isPageable = isPageable;
+    this.paginationSizes = paginationSizes;
+    this.defaultPageSize = defaultPageSize;
   }
 }

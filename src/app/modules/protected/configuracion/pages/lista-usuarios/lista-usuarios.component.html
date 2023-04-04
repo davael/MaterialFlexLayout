@@ -1,7 +1,8 @@
 <h1>Usuarios</h1>
 <mat-divider></mat-divider>
-<app-table-data [dataSource]="usuarios"
-                [tableParameters]="this.tableParameters"
-                (rowAction)="abreModal($event)"
-                (create)="abreModal($event)">
+<app-table-data
+  [dataSource]="usuarios"
+  [tableParameters]="this.tableParameters"
+  (rowAction)="abreModal($event)"
+  (create)="abreModal($event)">
 </app-table-data>

@@ -8,25 +8,14 @@ import { RouterModule } from '@angular/router';
 import { TableComponent } from './table/table.component';
 import { ConfirmDialogComponent } from './confirm-dialog/confirm-dialog.component';
 
-
-
 @NgModule({
   declarations: [
     NavbarComponent,
     SidebarComponent,
     TableComponent,
-    ConfirmDialogComponent
+    ConfirmDialogComponent,
   ],
-  imports: [
-    CommonModule,
-    MaterialModule,
-    FlexLayoutModule,
-    RouterModule
-  ],
-  exports: [
-    NavbarComponent,
-    SidebarComponent,
-    TableComponent
-  ]
+  imports: [CommonModule, MaterialModule, FlexLayoutModule, RouterModule],
+  exports: [NavbarComponent, SidebarComponent, TableComponent],
 })
-export class SharedModule { }
+export class SharedModule {}

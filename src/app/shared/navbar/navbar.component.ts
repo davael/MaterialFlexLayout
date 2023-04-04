@@ -1,20 +1,17 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
-
+import { Component, EventEmitter, Output } from '@angular/core';
 
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.scss']
+  styleUrls: ['./navbar.component.scss'],
 })
 export class NavbarComponent {
-
-
   @Output() sidenavToogle = new EventEmitter<boolean>();
 
-  constructor() { }
+  // eslint-disable-next-line @typescript-eslint/no-empty-function
+  constructor() {}
 
   openSidenav() {
     //this.sidenavToogle.emit(true);
   }
-
 }

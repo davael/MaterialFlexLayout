@@ -5,7 +5,7 @@
     <div fxLayout="row" fxLayoutAlign="space-around center">
       <mat-form-field appearance="standard">
         <mat-label>Descripción</mat-label>
-        <input matInput formControlName="rolDescripcion">
+        <input matInput formControlName="rolDescripcion" />
       </mat-form-field>
       <mat-slide-toggle formControlName="rolActivo">Activo</mat-slide-toggle>
     </div>
@@ -13,6 +13,10 @@
 </mat-dialog-content>
 <mat-dialog-actions *ngIf="!rolForm.disabled">
   <button mat-button mat-dialog-close>Cancel</button>
-  <button mat-button color="primary" (click)="updateRol()" *ngIf="!this.create">Actualizar</button>
-  <button mat-button color="primary" (click)="createRol()" *ngIf="this.create">Guardar</button>
+  <button mat-button color="primary" (click)="updateRol()" *ngIf="!this.create">
+    Actualizar
+  </button>
+  <button mat-button color="primary" (click)="createRol()" *ngIf="this.create">
+    Guardar
+  </button>
 </mat-dialog-actions>

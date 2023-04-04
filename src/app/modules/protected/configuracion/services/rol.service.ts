@@ -5,29 +5,26 @@ import { RolGet } from '../interfaces/rol-get';
 
 const url = environment.APIUrl;
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class RolService {
+  constructor(private httpClient: HttpClient) {}
 
-  constructor(private httpClient: HttpClient) { }
-
-
-
-  getAllRoles(){
-    return this.httpClient.get<RolGet[]>(url + 'Roles')
+  getAllRoles() {
+    return this.httpClient.get<RolGet[]>(url + 'Roles');
   }
-  getSelectedRoles(){
-    return this.httpClient.get<RolGet[]>(url + 'Roles/Select')
+  getSelectedRoles() {
+    return this.httpClient.get<RolGet[]>(url + 'Roles/Select');
   }
-  updateRol(id: number, value: any){
-    return this.httpClient.put(url + 'Roles/'+id,value)
+  updateRol(id: number, value: any) {
+    return this.httpClient.put(url + 'Roles/' + id, value);
   }
 
-  addRol(rol:any){
-    return this.httpClient.post(url + 'Roles',rol);
+  addRol(rol: any) {
+    return this.httpClient.post(url + 'Roles', rol);
   }
 
-  deleteRol(id: number){
-    return this.httpClient.delete(url + 'Roles/'+ id);
+  deleteRol(id: number) {
+    return this.httpClient.delete(url + 'Roles/' + id);
   }
 }

@@ -4,14 +4,14 @@ import { ListaRolesComponent } from './pages/lista-roles/lista-roles.component';
 import { ListaUsuariosComponent } from './pages/lista-usuarios/lista-usuarios.component';
 import { RolComponent } from './pages/rol/rol.component';
 
-
-const routes: Routes = [ { path: 'usuarios', component: ListaUsuariosComponent },
-                         { path: 'roles', component: ListaRolesComponent },
-                         { path:'roles/:id', component: RolComponent}
-                      ];
+const routes: Routes = [
+  { path: 'usuarios', component: ListaUsuariosComponent },
+  { path: 'roles', component: ListaRolesComponent },
+  { path: 'roles/:id', component: RolComponent },
+];
 
 @NgModule({
   imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
-export class ConfiguracionRoutingModule { }
+export class ConfiguracionRoutingModule {}

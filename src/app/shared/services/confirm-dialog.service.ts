@@ -4,11 +4,10 @@ import { ConfirmDialogComponent } from '../confirm-dialog/confirm-dialog.compone
 import { Observable, map, take } from 'rxjs';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ConfirmDialogService {
-
-  constructor(private dialog: MatDialog) { }
+  constructor(private dialog: MatDialog) {}
 
   dialogRef!: MatDialogRef<ConfirmDialogComponent>;
 
@@ -18,14 +17,16 @@ export class ConfirmDialogService {
         title: options.title,
         message: options.message,
         cancelText: options.cancelText,
-        confirmText: options.confirmText
-      }
+        confirmText: options.confirmText,
+      },
     });
   }
   public confirmed(): Observable<any> {
-    return this.dialogRef.afterClosed().pipe(take(1), map(res => {
-      return res;
-    }
-    ));
+    return this.dialogRef.afterClosed().pipe(
+      take(1),
+      map(res => {
+        return res;
+      })
+    );
   }
 }

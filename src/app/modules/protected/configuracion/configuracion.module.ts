@@ -11,15 +11,12 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { UsuarioComponent } from './pages/usuario/usuario.component';
 import { SharedModule } from 'src/app/shared/shared.module';
 
-
-
-
 @NgModule({
   declarations: [
     ListaUsuariosComponent,
     ListaRolesComponent,
     RolComponent,
-    UsuarioComponent
+    UsuarioComponent,
   ],
   imports: [
     CommonModule,
@@ -28,7 +25,7 @@ import { SharedModule } from 'src/app/shared/shared.module';
     FormsModule,
     ReactiveFormsModule,
     FlexLayoutModule,
-    SharedModule
-  ]
+    SharedModule,
+  ],
 })
-export class ConfiguracionModule { }
+export class ConfiguracionModule {}

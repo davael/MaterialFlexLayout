@@ -13,47 +13,56 @@ import { IUserGet } from '../../interfaces/user-get';
 @Component({
   selector: 'app-lista-usuarios',
   templateUrl: './lista-usuarios.component.html',
-  styleUrls: ['./lista-usuarios.component.scss']
+  styleUrls: ['./lista-usuarios.component.scss'],
 })
 export class ListaUsuariosComponent implements OnInit {
   usuarios!: IUserGet[];
   tableParameters!: TableParameter;
 
-  constructor(private _userS: UsuariosService, public dialog: MatDialog,private dialogService: ConfirmDialogService) { }
+  constructor(
+    private _userS: UsuariosService,
+    public dialog: MatDialog,
+    private dialogService: ConfirmDialogService
+  ) {}
 
   ngOnInit(): void {
-
     this.getUsuarios();
-    let tablePagination = new TablePagination(true, [2, 5, 10], 5);
-    this.tableParameters = new TableParameter(this.getColumns(), this.getActionsButtons(), true, tablePagination, true);
+    const tablePagination = new TablePagination(true, [2, 5, 10], 5);
+    this.tableParameters = new TableParameter(
+      this.getColumns(),
+      this.getActionsButtons(),
+      true,
+      tablePagination,
+      true
+    );
   }
 
   openDialog(element: any, readOnly: string): void {
-     const dialogRef = this.dialog.open(UsuarioComponent, {
+    const dialogRef = this.dialog.open(UsuarioComponent, {
       width: '500px',
-      data: {mode: readOnly, data: element},
+      data: { mode: readOnly, data: element },
     });
     dialogRef.afterClosed().subscribe(result => {
-       this.ngOnInit();
+      this.ngOnInit();
     });
   }
 
-  abreModal(data:ActionTable){
+  abreModal(data: ActionTable) {
     this.openDialog(data.object, data.action);
   }
 
-  private getUsuarios(){
-    this._userS.getAllUsers().subscribe( x => {
-      this.usuarios=x;
-    })
+  private getUsuarios() {
+    this._userS.getAllUsers().subscribe(x => {
+      this.usuarios = x;
+    });
   }
 
   private getActionsButtons(): ActionButtonColumn[] {
     return [
       new ActionButtonColumn('Ver', 'visibility', 'basic', 'view'),
-      new ActionButtonColumn('Modificar', 'upgrade', 'primary', 'update')
+      new ActionButtonColumn('Modificar', 'upgrade', 'primary', 'update'),
     ];
-  };
+  }
 
   private getColumns(): TableColumn[] {
     return [
@@ -61,7 +70,7 @@ export class ListaUsuariosComponent implements OnInit {
       new TableColumn('Usuario', 'userName', 'text', false),
       new TableColumn('Email', 'userEmail', 'text', false),
       new TableColumn('Activo', 'userActivo', 'checkbox', false),
-      new TableColumn('Rol', 'userRolNavigation.rolDescripcion', 'text', false)
+      new TableColumn('Rol', 'userRolNavigation.rolDescripcion', 'text', false),
     ];
-  };
+  }
 }

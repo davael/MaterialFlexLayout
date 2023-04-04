@@ -5,15 +5,13 @@ import { Observable } from 'rxjs';
 @Component({
   selector: 'app-protected',
   templateUrl: './protected.component.html',
-  styleUrls: ['./protected.component.scss']
+  styleUrls: ['./protected.component.scss'],
 })
 export class ProtectedComponent {
-
   /* fullSidenav$ = this.menuS.fullSidenav$ */
-  constructor(private menuS: MenuService) { }
+  constructor(private menuS: MenuService) {}
 
-
-  onSinenavToggle(){
+  onSinenavToggle() {
     this.menuS.fullOpen();
   }
   onSinenavToggleOut() {

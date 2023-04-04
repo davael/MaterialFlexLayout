@@ -5,22 +5,21 @@ import { IUserGet } from '../interfaces/user-get';
 
 const url = environment.APIUrl;
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class UsuariosService {
+  constructor(private httpClient: HttpClient) {}
 
-  constructor(private httpClient: HttpClient) { }
-
-  getAllUsers(){
+  getAllUsers() {
     return this.httpClient.get<IUserGet[]>(url + 'Usuarios');
   }
-  getByIdUser(id: number){
+  getByIdUser(id: number) {
     return this.httpClient.get<IUserGet>(url + 'Usuarios/' + id);
   }
-  updateUser(id: number, value: any){
-    return this.httpClient.put(url + 'Usuarios/'+id,value);
+  updateUser(id: number, value: any) {
+    return this.httpClient.put(url + 'Usuarios/' + id, value);
   }
-  addUser(user:any){
-    return this.httpClient.post(url + 'Usuarios',user);
+  addUser(user: any) {
+    return this.httpClient.post(url + 'Usuarios', user);
   }
 }

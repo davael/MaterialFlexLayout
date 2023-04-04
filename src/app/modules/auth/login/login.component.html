@@ -1,8 +1,7 @@
 <div class="login-wrapper" fxLayout="row" fxLayoutAlign="center center">
   <mat-card class="box">
     <mat-card-header>
-           <img src="../../../../assets/edificios.png" width="30%" height="30%">
-
+      <img src="../../../../assets/edificios.png" width="30%" height="30%" />
     </mat-card-header>
     <br />
     <form [formGroup]="loginForm" class="example-form">
@@ -15,11 +14,10 @@
             matInput
             placeholder="Password"
             [type]="hidePass ? 'password' : 'text'"
-            formControlName="password"
-          />
+            formControlName="password" />
           <button mat-icon-button matSuffix (click)="hidePass = !hidePass">
             <mat-icon>{{
-              hidePass ? "visibility_off" : "visibility"
+              hidePass ? 'visibility_off' : 'visibility'
             }}</mat-icon>
           </button>
         </mat-form-field>
@@ -29,8 +27,7 @@
         color="primary"
         class="btn-block"
         (click)="login()"
-        [disabled]="loginForm.invalid"
-      >
+        [disabled]="loginForm.invalid">
         Log In
       </button>
     </form>

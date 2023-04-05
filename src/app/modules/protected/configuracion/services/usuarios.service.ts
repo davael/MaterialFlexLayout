@@ -2,8 +2,8 @@ import {HttpClient} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import {environment} from 'src/environments/environment.prod';
 import {IUserGet} from '../interfaces/user-get';
-import { IUserPut } from '../interfaces/user-put';
-import { IUserPost } from '../interfaces/user-post';
+import {IUserPut} from '../interfaces/user-put';
+import {IUserPost} from '../interfaces/user-post';
 
 const url = environment.APIUrl;
 @Injectable({

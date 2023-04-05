@@ -2,7 +2,7 @@ import {HttpClient} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import {environment} from 'src/environments/environment.prod';
 import {RolGet} from '../interfaces/rol-get';
-import { RolPost } from '../interfaces/rol-post';
+import {RolPost} from '../interfaces/rol-post';
 
 const url = environment.APIUrl;
 @Injectable({

@@ -1,6 +1,8 @@
+import { HttpClient } from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import {BehaviorSubject} from 'rxjs';
-
+import { environment } from 'src/environments/environment.prod';
+const url = environment.APIUrl;
 @Injectable({
   providedIn: 'root',
 })
@@ -8,7 +10,7 @@ export class MenuService {
   private fullSidenav = new BehaviorSubject<boolean>(false);
   fullSidenav$ = this.fullSidenav.asObservable();
 
-  constructor() {}
+  constructor(private http: HttpClient) {}
 
   fullOpen() {
     this.fullSidenav.next(true);
@@ -16,4 +18,9 @@ export class MenuService {
   close() {
     this.fullSidenav.next(false);
   }
+
+  getMenu(){
+    return this.http.get<any[]>(url +'Menus');
+  }
+
 }

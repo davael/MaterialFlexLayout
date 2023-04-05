@@ -1,3 +1,4 @@
+import { IMenu } from 'src/app/core/interfaces/imenu';
 import {MenuService} from './../../core/services/menu.service';
 import {Component} from '@angular/core';
 
@@ -9,5 +10,12 @@ import {Component} from '@angular/core';
 export class SidebarComponent {
   fullSidenav$ = this.menuS.fullSidenav$;
 
-  constructor(private menuS: MenuService) {}
+  menu!: IMenu[]
+  constructor(private menuS: MenuService) {
+    this.menuS.getMenu().subscribe( x => {
+      this.menu=x;
+      console.log(this.menu);
+    })
+
+  }
 }

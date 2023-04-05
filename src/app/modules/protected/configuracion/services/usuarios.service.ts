@@ -1,7 +1,7 @@
-import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { environment } from 'src/environments/environment.prod';
-import { IUserGet } from '../interfaces/user-get';
+import {HttpClient} from '@angular/common/http';
+import {Injectable} from '@angular/core';
+import {environment} from 'src/environments/environment.prod';
+import {IUserGet} from '../interfaces/user-get';
 
 const url = environment.APIUrl;
 @Injectable({

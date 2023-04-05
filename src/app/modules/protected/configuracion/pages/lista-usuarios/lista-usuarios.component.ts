@@ -1,14 +1,14 @@
-import { Component, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
-import { UsuariosService } from '../../services/usuarios.service';
-import { UsuarioComponent } from '../usuario/usuario.component';
-import { TableParameter } from 'src/app/shared/models/table-parameter';
-import { ConfirmDialogService } from 'src/app/shared/services/confirm-dialog.service';
-import { TablePagination } from 'src/app/shared/models/table-pagination';
-import { TableColumn } from 'src/app/shared/models/table-column';
-import { ActionButtonColumn } from 'src/app/shared/models/action-button-column';
-import { ActionTable } from 'src/app/shared/models/action-table';
-import { IUserGet } from '../../interfaces/user-get';
+import {Component, OnInit} from '@angular/core';
+import {MatDialog} from '@angular/material/dialog';
+import {UsuariosService} from '../../services/usuarios.service';
+import {UsuarioComponent} from '../usuario/usuario.component';
+import {TableParameter} from 'src/app/shared/models/table-parameter';
+import {ConfirmDialogService} from 'src/app/shared/services/confirm-dialog.service';
+import {TablePagination} from 'src/app/shared/models/table-pagination';
+import {TableColumn} from 'src/app/shared/models/table-column';
+import {ActionButtonColumn} from 'src/app/shared/models/action-button-column';
+import {ActionTable} from 'src/app/shared/models/action-table';
+import {IUserGet} from '../../interfaces/user-get';
 
 @Component({
   selector: 'app-lista-usuarios',
@@ -30,7 +30,7 @@ export class ListaUsuariosComponent implements OnInit {
   openDialog(element: any, readOnly: string): void {
     const dialogRef = this.dialog.open(UsuarioComponent, {
       width: '500px',
-      data: { mode: readOnly, data: element },
+      data: {mode: readOnly, data: element},
     });
     dialogRef.afterClosed().subscribe(result => {
       this.ngOnInit();

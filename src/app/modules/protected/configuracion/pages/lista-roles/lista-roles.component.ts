@@ -1,14 +1,14 @@
-import { Component, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
-import { RolService } from '../../services/rol.service';
-import { RolComponent } from '../rol/rol.component';
-import { ActionTable } from 'src/app/shared/models/action-table';
-import { ActionButtonColumn } from 'src/app/shared/models/action-button-column';
-import { TableColumn } from 'src/app/shared/models/table-column';
-import { RolGet } from '../../interfaces/rol-get';
-import { TableParameter } from 'src/app/shared/models/table-parameter';
-import { TablePagination } from 'src/app/shared/models/table-pagination';
-import { ConfirmDialogService } from 'src/app/shared/services/confirm-dialog.service';
+import {Component, OnInit} from '@angular/core';
+import {MatDialog} from '@angular/material/dialog';
+import {RolService} from '../../services/rol.service';
+import {RolComponent} from '../rol/rol.component';
+import {ActionTable} from 'src/app/shared/models/action-table';
+import {ActionButtonColumn} from 'src/app/shared/models/action-button-column';
+import {TableColumn} from 'src/app/shared/models/table-column';
+import {RolGet} from '../../interfaces/rol-get';
+import {TableParameter} from 'src/app/shared/models/table-parameter';
+import {TablePagination} from 'src/app/shared/models/table-pagination';
+import {ConfirmDialogService} from 'src/app/shared/services/confirm-dialog.service';
 
 @Component({
   selector: 'app-lista-roles',
@@ -30,7 +30,7 @@ export class ListaRolesComponent implements OnInit {
   openDialog(element: any, readOnly: boolean): void {
     const dialogRef = this.dialog.open(RolComponent, {
       width: '500px',
-      data: { read: readOnly, data: element },
+      data: {read: readOnly, data: element},
     });
 
     dialogRef.afterClosed().subscribe(result => {

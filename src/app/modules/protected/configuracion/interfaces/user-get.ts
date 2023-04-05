@@ -1,4 +1,4 @@
-import { RolGet } from './rol-get';
+import {RolGet} from './rol-get';
 
 export interface IUserGet {
   userId: number;

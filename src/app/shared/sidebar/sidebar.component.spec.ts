@@ -1,7 +1,7 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { SidebarComponent } from './sidebar.component';
-import { MatMenuModule } from '@angular/material/menu';
+import {SidebarComponent} from './sidebar.component';
+import {MatMenuModule} from '@angular/material/menu';
 
 describe('SidebarComponent', () => {
   let component: SidebarComponent;
@@ -10,7 +10,7 @@ describe('SidebarComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [SidebarComponent],
-      imports:[MatMenuModule]
+      imports: [MatMenuModule],
     }).compileComponents();
 
     fixture = TestBed.createComponent(SidebarComponent);

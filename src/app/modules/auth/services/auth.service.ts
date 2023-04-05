@@ -1,10 +1,10 @@
-import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { Router } from '@angular/router';
-import { catchError, tap } from 'rxjs/operators';
-import { BehaviorSubject, EMPTY } from 'rxjs';
-import { IUser } from 'src/app/core/interfaces/iuser';
-import { environment } from 'src/environments/environment.prod';
+import {HttpClient} from '@angular/common/http';
+import {Injectable} from '@angular/core';
+import {Router} from '@angular/router';
+import {catchError, tap} from 'rxjs/operators';
+import {BehaviorSubject, EMPTY} from 'rxjs';
+import {IUser} from 'src/app/core/interfaces/iuser';
+import {environment} from 'src/environments/environment.prod';
 
 const url = environment.APIUrl;
 
@@ -26,7 +26,6 @@ export class AuthService {
         this.handleSuccesfulLogin(token);
       }),
       catchError(error => {
-        console.log(error);
         return EMPTY;
       })
     );

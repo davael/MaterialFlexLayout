@@ -1,8 +1,8 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { ListaUsuariosComponent } from './lista-usuarios.component';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
-import { MaterialModule } from 'src/app/core/material/material.module';
+import {ListaUsuariosComponent} from './lista-usuarios.component';
+import {HttpClientTestingModule} from '@angular/common/http/testing';
+import {MaterialModule} from 'src/app/core/material/material.module';
 
 describe('ListaUsuariosComponent', () => {
   let component: ListaUsuariosComponent;
@@ -11,7 +11,7 @@ describe('ListaUsuariosComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [ListaUsuariosComponent],
-      imports:[HttpClientTestingModule,MaterialModule],
+      imports: [HttpClientTestingModule, MaterialModule],
     }).compileComponents();
 
     fixture = TestBed.createComponent(ListaUsuariosComponent);

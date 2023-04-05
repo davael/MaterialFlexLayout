@@ -1,10 +1,10 @@
-import { AfterViewInit, Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
-import { MatPaginator } from '@angular/material/paginator';
-import { MatSort, Sort } from '@angular/material/sort';
-import { MatTableDataSource } from '@angular/material/table';
-import { ActionTable } from '../models/action-table';
-import { TableColumn } from '../models/table-column';
-import { TableParameter } from '../models/table-parameter';
+import {AfterViewInit, Component, EventEmitter, Input, OnInit, Output, ViewChild} from '@angular/core';
+import {MatPaginator} from '@angular/material/paginator';
+import {MatSort, Sort} from '@angular/material/sort';
+import {MatTableDataSource} from '@angular/material/table';
+import {ActionTable} from '../models/action-table';
+import {TableColumn} from '../models/table-column';
+import {TableParameter} from '../models/table-parameter';
 
 @Component({
   selector: 'app-table-data',
@@ -12,8 +12,8 @@ import { TableParameter } from '../models/table-parameter';
   styleUrls: ['./table.component.scss'],
 })
 export class TableComponent implements OnInit, AfterViewInit {
-  @ViewChild(MatPaginator, { static: false }) matPaginator!: MatPaginator;
-  @ViewChild(MatSort, { static: true }) matSort!: MatSort;
+  @ViewChild(MatPaginator, {static: false}) matPaginator!: MatPaginator;
+  @ViewChild(MatSort, {static: true}) matSort!: MatSort;
 
   @Input() tableParameters!: TableParameter;
 

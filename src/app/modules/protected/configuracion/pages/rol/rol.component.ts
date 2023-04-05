@@ -1,8 +1,8 @@
-import { Component, Inject, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { RolService } from '../../services/rol.service';
-import { ConfirmDialogService } from 'src/app/shared/services/confirm-dialog.service';
+import {Component, Inject, OnInit} from '@angular/core';
+import {FormBuilder, FormControl, FormGroup} from '@angular/forms';
+import {MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import {RolService} from '../../services/rol.service';
+import {ConfirmDialogService} from 'src/app/shared/services/confirm-dialog.service';
 
 @Component({
   selector: 'app-rol',

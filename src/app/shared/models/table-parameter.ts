@@ -1,6 +1,6 @@
-import { ActionButtonColumn } from './action-button-column';
-import { TableColumn } from './table-column';
-import { TablePagination } from './table-pagination';
+import {ActionButtonColumn} from './action-button-column';
+import {TableColumn} from './table-column';
+import {TablePagination} from './table-pagination';
 
 export class TableParameter {
   columns!: TableColumn[];

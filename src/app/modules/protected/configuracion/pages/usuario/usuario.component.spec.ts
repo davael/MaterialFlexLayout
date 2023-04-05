@@ -1,9 +1,9 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { UsuarioComponent } from './usuario.component';
-import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
-import { FormBuilder, FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { HttpClientTestingModule } from '@angular/common/http/testing';
+import {UsuarioComponent} from './usuario.component';
+import {MAT_DIALOG_DATA, MatDialogRef} from '@angular/material/dialog';
+import {FormBuilder, FormsModule, ReactiveFormsModule} from '@angular/forms';
+import {HttpClientTestingModule} from '@angular/common/http/testing';
 
 describe('UsuarioComponent', () => {
   let component: UsuarioComponent;
@@ -14,12 +14,12 @@ describe('UsuarioComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [UsuarioComponent],
-      imports:[FormsModule,ReactiveFormsModule,HttpClientTestingModule],
+      imports: [FormsModule, ReactiveFormsModule, HttpClientTestingModule],
       providers: [
         {provide: MatDialogRef, useValue: {}},
         {provide: MAT_DIALOG_DATA, useValue: []},
-        { provide: FormBuilder, useValue: formBuilder }
-    ]
+        {provide: FormBuilder, useValue: formBuilder},
+      ],
     }).compileComponents();
 
     fixture = TestBed.createComponent(UsuarioComponent);

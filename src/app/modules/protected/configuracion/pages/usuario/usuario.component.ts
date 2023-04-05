@@ -1,10 +1,10 @@
-import { Component, Inject, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-import { Observable } from 'rxjs';
-import { RolService } from '../../services/rol.service';
-import { UsuariosService } from '../../services/usuarios.service';
-import { RolGet } from '../../interfaces/rol-get';
+import {Component, Inject, OnInit} from '@angular/core';
+import {FormBuilder, FormControl, FormGroup, Validators} from '@angular/forms';
+import {MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import {Observable} from 'rxjs';
+import {RolService} from '../../services/rol.service';
+import {UsuariosService} from '../../services/usuarios.service';
+import {RolGet} from '../../interfaces/rol-get';
 
 @Component({
   selector: 'app-usuario',

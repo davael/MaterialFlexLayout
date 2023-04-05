@@ -27,12 +27,12 @@ export class ListaUsuariosComponent implements OnInit {
     this.tableParameters = new TableParameter(this.getColumns(), this.getActionsButtons(), true, tablePagination, true);
   }
 
-  openDialog(element: any, readOnly: string): void {
+  openDialog(element: IUserGet, readOnly: string): void {
     const dialogRef = this.dialog.open(UsuarioComponent, {
       width: '500px',
       data: {mode: readOnly, data: element},
     });
-    dialogRef.afterClosed().subscribe(result => {
+    dialogRef.afterClosed().subscribe(() => {
       this.ngOnInit();
     });
   }

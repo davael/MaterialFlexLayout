@@ -5,10 +5,9 @@ import {BehaviorSubject} from 'rxjs';
   providedIn: 'root',
 })
 export class MenuService {
-  private fullSidenav = new BehaviorSubject<boolean | any>(false);
+  private fullSidenav = new BehaviorSubject<boolean>(false);
   fullSidenav$ = this.fullSidenav.asObservable();
 
-  // eslint-disable-next-line @typescript-eslint/no-empty-function
   constructor() {}
 
   fullOpen() {

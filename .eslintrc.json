@@ -18,7 +18,6 @@
         "eslint:recommended",
         "plugin:@typescript-eslint/recommended",
         "plugin:@angular-eslint/recommended",
-        // This is required if you use inline templates in Components
         "plugin:@angular-eslint/template/process-inline-templates",
         "plugin:prettier/recommended"
       ],
@@ -26,6 +25,7 @@
         "no-console": 2,
         "no-undef": "off",
         "@typescript-eslint/no-unused-vars": "error",
+        "@typescript-eslint/no-empty-function":"off",
         "@angular-eslint/directive-selector": [
           "error",
           {

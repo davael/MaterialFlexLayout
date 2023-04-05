@@ -25,7 +25,7 @@ export class AuthService {
       tap(token => {
         this.handleSuccesfulLogin(token);
       }),
-      catchError(error => {
+      catchError(() => {
         return EMPTY;
       })
     );

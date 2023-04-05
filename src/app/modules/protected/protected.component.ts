@@ -1,6 +1,5 @@
 import {MenuService} from './../../core/services/menu.service';
-import {Component, OnInit} from '@angular/core';
-import {Observable} from 'rxjs';
+import {Component} from '@angular/core';
 
 @Component({
   selector: 'app-protected',

@@ -27,19 +27,19 @@ export class ListaRolesComponent implements OnInit {
     this.tableParameters = new TableParameter(this.getColumns(), this.getActionsButtons(), true, tablePagination, true);
   }
 
-  openDialog(element: any, readOnly: boolean): void {
+  openDialog(element: RolGet, readOnly: boolean): void {
     const dialogRef = this.dialog.open(RolComponent, {
       width: '500px',
       data: {read: readOnly, data: element},
     });
 
-    dialogRef.afterClosed().subscribe(result => {
+    dialogRef.afterClosed().subscribe(() => {
       this.getRoles();
     });
   }
 
   borrarRol(id: number) {
-    this._rolS.deleteRol(id).subscribe(x => {
+    this._rolS.deleteRol(id).subscribe(() => {
       this.getRoles();
     });
   }
@@ -64,7 +64,7 @@ export class ListaRolesComponent implements OnInit {
       });
     }
     if (data.action === 'add') {
-      this.openDialog(null, false);
+      this.openDialog(null as any, false);
     }
   }
 

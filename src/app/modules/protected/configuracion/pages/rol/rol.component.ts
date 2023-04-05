@@ -47,7 +47,7 @@ export class RolComponent implements OnInit {
     });
     this.dialogService.confirmed().subscribe(confirmed => {
       if (confirmed) {
-        this.rolS.updateRol(this.rolForm.controls['rolId'].value, this.rolForm.value).subscribe(x => {
+        this.rolS.updateRol(this.rolForm.controls['rolId'].value, this.rolForm.value).subscribe(() => {
           this.dialogRef.close();
         });
       }
@@ -63,7 +63,7 @@ export class RolComponent implements OnInit {
     });
     this.dialogService.confirmed().subscribe(confirmed => {
       if (confirmed) {
-        this.rolS.addRol(this.rolForm.value).subscribe(x => {
+        this.rolS.addRol(this.rolForm.value).subscribe(() => {
           this.dialogRef.close();
         });
       }

@@ -2,6 +2,7 @@ import {HttpClient} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import {environment} from 'src/environments/environment.prod';
 import {RolGet} from '../interfaces/rol-get';
+import { RolPost } from '../interfaces/rol-post';
 
 const url = environment.APIUrl;
 @Injectable({
@@ -16,11 +17,11 @@ export class RolService {
   getSelectedRoles() {
     return this.httpClient.get<RolGet[]>(url + 'Roles/Select');
   }
-  updateRol(id: number, value: any) {
+  updateRol(id: number, value: RolGet) {
     return this.httpClient.put(url + 'Roles/' + id, value);
   }
 
-  addRol(rol: any) {
+  addRol(rol: RolPost) {
     return this.httpClient.post(url + 'Roles', rol);
   }
 

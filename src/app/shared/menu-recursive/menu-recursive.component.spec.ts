@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { MenuRecursiveComponent } from './menu-recursive.component';
+import {MenuRecursiveComponent} from './menu-recursive.component';
 
 describe('MenuRecursiveComponent', () => {
   let component: MenuRecursiveComponent;
@@ -8,9 +8,8 @@ describe('MenuRecursiveComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ MenuRecursiveComponent ]
-    })
-    .compileComponents();
+      declarations: [MenuRecursiveComponent],
+    }).compileComponents();
 
     fixture = TestBed.createComponent(MenuRecursiveComponent);
     component = fixture.componentInstance;

@@ -1,7 +1,8 @@
-import { HttpClient } from '@angular/common/http';
+import {HttpClient} from '@angular/common/http';
 import {Injectable} from '@angular/core';
 import {BehaviorSubject} from 'rxjs';
-import { environment } from 'src/environments/environment.prod';
+import {environment} from 'src/environments/environment.prod';
+import {IMenu} from '../interfaces/imenu';
 const url = environment.APIUrl;
 @Injectable({
   providedIn: 'root',
@@ -19,8 +20,7 @@ export class MenuService {
     this.fullSidenav.next(false);
   }
 
-  getMenu(){
-    return this.http.get<any[]>(url +'Menus');
+  getMenu() {
+    return this.http.get<IMenu[]>(url + 'Menus');
   }
-
 }

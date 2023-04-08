@@ -7,7 +7,7 @@ import {SidebarComponent} from './sidebar/sidebar.component';
 import {RouterModule} from '@angular/router';
 import {TableComponent} from './table/table.component';
 import {ConfirmDialogComponent} from './confirm-dialog/confirm-dialog.component';
-import { MenuRecursiveComponent } from './menu-recursive/menu-recursive.component';
+import {MenuRecursiveComponent} from './menu-recursive/menu-recursive.component';
 
 @NgModule({
   declarations: [NavbarComponent, SidebarComponent, TableComponent, ConfirmDialogComponent, MenuRecursiveComponent],

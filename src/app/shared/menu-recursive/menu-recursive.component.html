@@ -1,0 +1,15 @@
+<mat-menu #buildMenu="matMenu" [overlapTrigger]="false">
+  <ng-container *ngFor="let item of items">
+    <ng-container *ngIf="!item.menPath">
+      <button mat-menu-item color="primary" [matMenuTriggerFor]="menu.buildMenu">
+        {{item.menDescripcion}}
+      </button>
+      <app-menu-recursive #menu [items]="item.inverseMenSubmenu"></app-menu-recursive>
+    </ng-container>
+    <ng-container *ngIf="item.menPath">
+      <button mat-menu-item [routerLink]="item.menPath">
+        {{item.menDescripcion}}
+      </button>
+    </ng-container>
+  </ng-container>
+</mat-menu>

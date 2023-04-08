@@ -1,26 +1,22 @@
 <mat-nav-list>
-  <!--   <a mat-list-item routerLinkActive="list-item-active" routerLink="/module1">
-    <mat-icon mat-list-icon>people</mat-icon>
-    <h4 mat-line *ngIf="this.fullSidenav$|async">Module 1</h4>
-  </a>
-  <a mat-list-item routerLinkActive="list-item-active" routerLink="/module2">
-    <mat-icon mat-list-icon>calendar_month</mat-icon>
-    <h4 mat-line *ngIf="this.fullSidenav$|async">Module 2</h4>
-  </a> -->
-  <div *ngFor="let item of menu">
+  <ng-container *ngFor="let item of menu">
     <a mat-list-item *ngIf="item.inverseMenSubmenu === null" >
       <mat-icon mat-list-icon>{{item.menIcono}}</mat-icon>
       <h4 mat-line *ngIf="this.fullSidenav$ | async" >{{item.menDescripcion}}</h4>
     </a>
-    <a mat-list-item *ngIf="item.inverseMenSubmenu !== null"  [matMenuTriggerFor]="animals">
+    <a mat-list-item *ngIf="item.inverseMenSubmenu !== null"  [matMenuTriggerFor]="menu.buildMenu">
       <mat-icon mat-list-icon>{{item.menIcono}}</mat-icon>
       <h4 mat-line *ngIf="this.fullSidenav$ | async" >{{item.menDescripcion}}</h4>
     </a>
-  </div>
-  <mat-menu #animals="matMenu">
-    <button mat-menu-item [matMenuTriggerFor]="users">Seguridad</button>
+    <app-menu-recursive  #menu [items]="item.inverseMenSubmenu"></app-menu-recursive>
+  </ng-container>
 
-  </mat-menu>
+
+
+
+
+
+
 
  <!--  <mat-menu #animals="matMenu">
     <button mat-menu-item [matMenuTriggerFor]="users">Seguridad</button>

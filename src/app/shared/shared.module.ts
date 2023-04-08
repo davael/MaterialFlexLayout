@@ -7,9 +7,10 @@ import {SidebarComponent} from './sidebar/sidebar.component';
 import {RouterModule} from '@angular/router';
 import {TableComponent} from './table/table.component';
 import {ConfirmDialogComponent} from './confirm-dialog/confirm-dialog.component';
+import { MenuRecursiveComponent } from './menu-recursive/menu-recursive.component';
 
 @NgModule({
-  declarations: [NavbarComponent, SidebarComponent, TableComponent, ConfirmDialogComponent],
+  declarations: [NavbarComponent, SidebarComponent, TableComponent, ConfirmDialogComponent, MenuRecursiveComponent],
   imports: [CommonModule, MaterialModule, FlexLayoutModule, RouterModule],
   exports: [NavbarComponent, SidebarComponent, TableComponent],
 })

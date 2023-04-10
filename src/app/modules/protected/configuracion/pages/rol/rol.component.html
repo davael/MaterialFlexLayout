@@ -10,6 +10,7 @@
       <mat-slide-toggle formControlName="rolActivo">Activo</mat-slide-toggle>
     </div>
   </form>
+  <app-dynamic-form [model]="this.data.data"></app-dynamic-form>
 </mat-dialog-content>
 <mat-dialog-actions *ngIf="!rolForm.disabled">
   <button mat-button mat-dialog-close>Cancel</button>
